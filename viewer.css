@@ -64,3 +64,10 @@ html, body {
   -webkit-overflow-scrolling: touch;
 }
 .google-native-app.is-searching .google-safari-chrome { display: none; }
+
+/* Fixed vector artwork avoids OS-specific emoji rendering in comment tools. */
+.hy-comment-tools > button { appearance: none; -webkit-appearance: none; padding: 0; }
+.hy-comment-tools .hy-tool-icon { display: block; width: 21px; height: 14px; color: #fff; filter: drop-shadow(1px 1px 1px #555); }
+/* Results tools belong to the scrolling header, not the phone viewport. */
+.google-native-app .google-topbar { position: relative; }
+.google-native-app.is-results .google-top-tools { top: 50%; right: 0; transform: translateY(-50%); }
