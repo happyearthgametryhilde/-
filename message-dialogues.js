@@ -2,13 +2,13 @@
 (() => {
   'use strict';
   const supplied={
-  "revision": "messages-20261019-01",
+  "revision": "messages-20261020-ads-01",
   "startDate": "2023-08-16",
   "sourceMessageCount": 45,
   "exampleMessageCount": 176,
   "barrageMessageCount": 48,
   "pressConversationCount": 16,
-  "advertisementMessageCount": 0,
+  "advertisementMessageCount": 24,
   "castingMessageCount": 2,
   "segmentCount": 11,
   "contacts": [
@@ -3517,6 +3517,279 @@
           "date": "2025-06-24",
           "time": "11:42",
           "generated": true
+        }
+      ]
+    },
+    {
+      "id": "sms-ad-recent-1",
+      "name": "+0000000042",
+      "senderName": "센터마켓",
+      "transport": "sms",
+      "advertisement": true,
+      "unsavedNumber": true,
+      "unread": 8,
+      "items": [
+        {
+          "id": "sms-ad-recent-1-2024-10-12",
+          "mine": false,
+          "text": "(광고) [센터마켓] 이번 주 생활용품 특가가 시작됐습니다. 필요한 물품을 할인된 가격으로 만나보세요.\n수신 거부: 차단 설정",
+          "date": "2024-10-12",
+          "time": "11:26",
+          "generated": true,
+          "advertisement": true,
+          "recurring": true
+        },
+        {
+          "id": "sms-ad-recent-1-2025-01-22",
+          "mine": false,
+          "text": "(광고) [센터마켓] 장바구니에 담아둔 상품을 확인해 보세요. 이번 주 할인 혜택이 도착했습니다.\n수신 거부: 차단 설정",
+          "date": "2025-01-22",
+          "time": "11:26",
+          "generated": true,
+          "advertisement": true,
+          "recurring": true
+        },
+        {
+          "id": "sms-ad-recent-1-2025-07-04",
+          "mine": false,
+          "text": "(광고) [센터마켓] 회원님께 드리는 배송비 할인 혜택! 기간 내 주문 시 적용됩니다.\n수신 거부: 차단 설정",
+          "date": "2025-07-04",
+          "time": "11:26",
+          "generated": true,
+          "advertisement": true,
+          "recurring": true
+        },
+        {
+          "id": "sms-ad-recent-1-2025-10-06",
+          "mine": false,
+          "text": "(광고) [센터마켓] 계절 기획전이 열렸습니다. 자주 찾는 생활용품을 모아 할인합니다.\n수신 거부: 차단 설정",
+          "date": "2025-10-06",
+          "time": "11:26",
+          "generated": true,
+          "advertisement": true,
+          "recurring": true
+        },
+        {
+          "id": "sms-ad-recent-1-2026-01-15",
+          "mine": false,
+          "text": "(광고) [센터마켓] 이번 주 생활용품 특가가 시작됐습니다. 필요한 물품을 할인된 가격으로 만나보세요.\n수신 거부: 차단 설정",
+          "date": "2026-01-15",
+          "time": "11:26",
+          "generated": true,
+          "advertisement": true,
+          "recurring": true
+        },
+        {
+          "id": "sms-ad-recent-1-2026-04-07",
+          "mine": false,
+          "text": "(광고) [센터마켓] 장바구니에 담아둔 상품을 확인해 보세요. 이번 주 할인 혜택이 도착했습니다.\n수신 거부: 차단 설정",
+          "date": "2026-04-07",
+          "time": "11:26",
+          "generated": true,
+          "advertisement": true,
+          "recurring": true
+        },
+        {
+          "id": "sms-ad-recent-1-2026-07-16",
+          "mine": false,
+          "text": "(광고) [센터마켓] 회원님께 드리는 배송비 할인 혜택! 기간 내 주문 시 적용됩니다.\n수신 거부: 차단 설정",
+          "date": "2026-07-16",
+          "time": "11:26",
+          "generated": true,
+          "advertisement": true,
+          "recurring": true
+        },
+        {
+          "id": "sms-ad-recent-1-2026-10-19",
+          "mine": false,
+          "text": "(광고) [센터마켓] 계절 기획전이 열렸습니다. 자주 찾는 생활용품을 모아 할인합니다.\n수신 거부: 차단 설정",
+          "date": "2026-10-19",
+          "time": "11:26",
+          "generated": true,
+          "advertisement": true,
+          "recurring": true
+        }
+      ]
+    },
+    {
+      "id": "sms-ad-recent-2",
+      "name": "+0000000065",
+      "senderName": "코어시네마",
+      "transport": "sms",
+      "advertisement": true,
+      "unsavedNumber": true,
+      "unread": 8,
+      "items": [
+        {
+          "id": "sms-ad-recent-2-2024-11-19",
+          "mine": false,
+          "text": "(광고) [코어시네마] 이번 달 관람 할인 쿠폰이 도착했습니다. 상영 시간표를 확인해 보세요.\n수신 거부: 차단 설정",
+          "date": "2024-11-19",
+          "time": "14:08",
+          "generated": true,
+          "advertisement": true,
+          "recurring": true
+        },
+        {
+          "id": "sms-ad-recent-2-2025-03-09",
+          "mine": false,
+          "text": "(광고) [코어시네마] 평일 저녁 영화 할인 안내. 보고 싶었던 작품을 가볍게 만나보세요.\n수신 거부: 차단 설정",
+          "date": "2025-03-09",
+          "time": "14:08",
+          "generated": true,
+          "advertisement": true,
+          "recurring": true
+        },
+        {
+          "id": "sms-ad-recent-2-2025-08-22",
+          "mine": false,
+          "text": "(광고) [코어시네마] 회원 전용 매점 할인 혜택! 영화와 함께 즐길 간식을 준비했습니다.\n수신 거부: 차단 설정",
+          "date": "2025-08-22",
+          "time": "14:08",
+          "generated": true,
+          "advertisement": true,
+          "recurring": true
+        },
+        {
+          "id": "sms-ad-recent-2-2025-11-07",
+          "mine": false,
+          "text": "(광고) [코어시네마] 이달의 추천 영화가 새로 공개됐습니다. 회원 할인으로 만나보세요.\n수신 거부: 차단 설정",
+          "date": "2025-11-07",
+          "time": "14:08",
+          "generated": true,
+          "advertisement": true,
+          "recurring": true
+        },
+        {
+          "id": "sms-ad-recent-2-2026-02-09",
+          "mine": false,
+          "text": "(광고) [코어시네마] 이번 달 관람 할인 쿠폰이 도착했습니다. 상영 시간표를 확인해 보세요.\n수신 거부: 차단 설정",
+          "date": "2026-02-09",
+          "time": "14:08",
+          "generated": true,
+          "advertisement": true,
+          "recurring": true
+        },
+        {
+          "id": "sms-ad-recent-2-2026-05-21",
+          "mine": false,
+          "text": "(광고) [코어시네마] 평일 저녁 영화 할인 안내. 보고 싶었던 작품을 가볍게 만나보세요.\n수신 거부: 차단 설정",
+          "date": "2026-05-21",
+          "time": "14:08",
+          "generated": true,
+          "advertisement": true,
+          "recurring": true
+        },
+        {
+          "id": "sms-ad-recent-2-2026-08-06",
+          "mine": false,
+          "text": "(광고) [코어시네마] 회원 전용 매점 할인 혜택! 영화와 함께 즐길 간식을 준비했습니다.\n수신 거부: 차단 설정",
+          "date": "2026-08-06",
+          "time": "14:08",
+          "generated": true,
+          "advertisement": true,
+          "recurring": true
+        },
+        {
+          "id": "sms-ad-recent-2-2026-10-03",
+          "mine": false,
+          "text": "(광고) [코어시네마] 이달의 추천 영화가 새로 공개됐습니다. 회원 할인으로 만나보세요.\n수신 거부: 차단 설정",
+          "date": "2026-10-03",
+          "time": "14:08",
+          "generated": true,
+          "advertisement": true,
+          "recurring": true
+        }
+      ]
+    },
+    {
+      "id": "sms-ad-recent-3",
+      "name": "+0000000021",
+      "senderName": "데일리커피",
+      "transport": "sms",
+      "advertisement": true,
+      "unsavedNumber": true,
+      "unread": 8,
+      "items": [
+        {
+          "id": "sms-ad-recent-3-2024-12-17",
+          "mine": false,
+          "text": "(광고) [데일리커피] 이번 주 음료 할인 쿠폰이 도착했습니다. 가까운 매장에서 사용해 보세요.\n수신 거부: 차단 설정",
+          "date": "2024-12-17",
+          "time": "17:42",
+          "generated": true,
+          "advertisement": true,
+          "recurring": true
+        },
+        {
+          "id": "sms-ad-recent-3-2025-05-12",
+          "mine": false,
+          "text": "(광고) [데일리커피] 회원님을 위한 아메리카노 할인 혜택을 준비했습니다.\n수신 거부: 차단 설정",
+          "date": "2025-05-12",
+          "time": "17:42",
+          "generated": true,
+          "advertisement": true,
+          "recurring": true
+        },
+        {
+          "id": "sms-ad-recent-3-2025-09-10",
+          "mine": false,
+          "text": "(광고) [데일리커피] 새로운 계절 음료가 나왔습니다. 멤버십 회원 한정 할인도 함께 만나보세요.\n수신 거부: 차단 설정",
+          "date": "2025-09-10",
+          "time": "17:42",
+          "generated": true,
+          "advertisement": true,
+          "recurring": true
+        },
+        {
+          "id": "sms-ad-recent-3-2025-12-19",
+          "mine": false,
+          "text": "(광고) [데일리커피] 잠깐 쉬어가는 시간, 커피 한 잔 어떠세요? 이번 주 할인 쿠폰을 확인해 보세요.\n수신 거부: 차단 설정",
+          "date": "2025-12-19",
+          "time": "17:42",
+          "generated": true,
+          "advertisement": true,
+          "recurring": true
+        },
+        {
+          "id": "sms-ad-recent-3-2026-03-18",
+          "mine": false,
+          "text": "(광고) [데일리커피] 이번 주 음료 할인 쿠폰이 도착했습니다. 가까운 매장에서 사용해 보세요.\n수신 거부: 차단 설정",
+          "date": "2026-03-18",
+          "time": "17:42",
+          "generated": true,
+          "advertisement": true,
+          "recurring": true
+        },
+        {
+          "id": "sms-ad-recent-3-2026-06-11",
+          "mine": false,
+          "text": "(광고) [데일리커피] 회원님을 위한 아메리카노 할인 혜택을 준비했습니다.\n수신 거부: 차단 설정",
+          "date": "2026-06-11",
+          "time": "17:42",
+          "generated": true,
+          "advertisement": true,
+          "recurring": true
+        },
+        {
+          "id": "sms-ad-recent-3-2026-09-17",
+          "mine": false,
+          "text": "(광고) [데일리커피] 새로운 계절 음료가 나왔습니다. 멤버십 회원 한정 할인도 함께 만나보세요.\n수신 거부: 차단 설정",
+          "date": "2026-09-17",
+          "time": "17:42",
+          "generated": true,
+          "advertisement": true,
+          "recurring": true
+        },
+        {
+          "id": "sms-ad-recent-3-2026-10-12",
+          "mine": false,
+          "text": "(광고) [데일리커피] 잠깐 쉬어가는 시간, 커피 한 잔 어떠세요? 이번 주 할인 쿠폰을 확인해 보세요.\n수신 거부: 차단 설정",
+          "date": "2026-10-12",
+          "time": "17:42",
+          "generated": true,
+          "advertisement": true,
+          "recurring": true
         }
       ]
     }
