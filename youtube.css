@@ -1,0 +1,144 @@
+/* YouTube home and two-column Shorts follow IMG_7317 and the supplied Shorts reference. */
+.youtube-app { background: #fff; color: #111; }
+.youtube-app .yt-header { min-height: 54px; height: 54px; padding: 3px 16px 4px; border: 0; gap: 20px; }
+.youtube-app .yt-wordmark { display: block; margin: 0; line-height: 1; flex-shrink: 0; }
+.yt-wordmark img { display: block; width: 94px; height: 22px; }
+.youtube-app .social-header-actions { display: flex; align-items: center; gap: 19px; }
+.youtube-app .social-header-actions button { width: 27px; height: 36px; display: grid; place-items: center; color: #111; }
+.youtube-app .social-header-actions .icon { width: 25px; height: 25px; }
+.yt-sections { display: flex; align-items: stretch; gap: 24px; height: 40px; flex-shrink: 0; padding: 0 16px; overflow-x: auto; scrollbar-width: none; background: #fff; }
+.yt-sections::-webkit-scrollbar { display: none; }
+.yt-sections button { position: relative; flex-shrink: 0; height: 40px; padding: 5px 0 12px; font-size: 16px; line-height: 22px; font-weight: 650; letter-spacing: -.6px; white-space: nowrap; }
+.yt-sections button.active::after { content: ""; position: absolute; left: 0; bottom: 7px; width: 14px; height: 2px; border-radius: 2px; background: #ff0033; }
+.youtube-app .yt-feed { padding-bottom: 8px; }
+.youtube-app .yt-card { display: block; margin: 0 0 8px; width: 100%; text-align: left; }
+.youtube-app .yt-thumbnail { border-radius: 0; background: #ececec; aspect-ratio: 16/9; }
+.youtube-app .yt-thumbnail>img { object-fit: cover; }
+.youtube-app .yt-card-info { display: flex; align-items: flex-start; gap: 11px; min-height: 84px; padding: 12px 12px 24px; }
+.youtube-app .yt-card-info>.avatar { width: 36px; height: 36px; flex-shrink: 0; font-size: 16px; }
+.youtube-app .yt-card-copy { flex: 1; min-width: 0; }
+.youtube-app .yt-card-copy strong { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; font-size: 15px; line-height: 20px; font-weight: 650; letter-spacing: -.3px; overflow-wrap: anywhere; }
+.youtube-app .yt-card-copy small { display: flex; align-items: center; flex-wrap: wrap; gap: 0 7px; font-size: 12px; line-height: 17px; margin-top: 4px; color: #606060; font-weight: 500; letter-spacing: -.2px; }
+.yt-meta-channel { display: inline-flex; align-items: center; gap: 3px; }
+.yt-meta-views { display: inline-flex; align-items: center; gap: 2px; white-space: nowrap; }
+.yt-meta-views .icon { width: 12px; height: 14px; }
+.yt-card-more { display: grid; place-items: center; flex: 0 0 23px; width: 23px; height: 24px; margin-left: 2px; color: #151515; }
+.yt-card-more .icon { width: 20px; height: 20px; }
+.youtube-app .yt-sponsored .yt-card-info { border-radius: 0 0 21px 21px; background: #fff5f1; padding-bottom: 17px; }
+.youtube-app .yt-sponsored .yt-card-copy small { color: #666; }
+.yt-ad-overlays { position: absolute; top: 9px; right: 8px; display: flex; flex-direction: column; gap: 8px; color: white; pointer-events: none; }
+.yt-ad-overlays>span { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: #424749cc; }
+.yt-ad-overlays .icon { width: 25px; height: 25px; }
+.yt-ad-overlays .yt-cc { font-size: 0; }
+.yt-cc::before { content: "CC"; display: grid; place-items: center; background: #fff; color: #222; width: 21px; height: 18px; border-radius: 1px; font-family: Arial,sans-serif; font-size: 12px; font-weight: 900; }
+.yt-ad-arrow { position: absolute; bottom: 5px; right: 5px; width: 32px; height: 32px; border-radius: 50%; display: grid; place-items: center; background: #0003; color: #fff; pointer-events: none; }
+.yt-ad-arrow .icon { width: 22px; height: 22px; }
+.youtube-app .yt-duration { font-size: 10px; right: 7px; bottom: 7px; border-radius: 4px; }
+.youtube-app .yt-tabs { display: flex; align-items: flex-start; justify-content: space-around; flex-shrink: 0; height: 87px; min-height: 87px; padding: 14px 8px 29px; border-top: .5px solid #dcdcdc; background: #f7f7fa; }
+.youtube-app .yt-tabs>button,.yt-create-icon { display: flex; align-items: center; justify-content: center; flex: 1; height: 34px; margin: 0; color: #111; }
+.youtube-app .yt-tabs>button:disabled { opacity: 1; cursor: default; }
+.youtube-app .yt-header button:disabled,.yt-sections button:disabled { opacity: 1; color: #111; cursor: default; }
+.youtube-app .yt-tabs .icon { width: 26px; height: 26px; }
+.yt-create-icon { pointer-events: none; }
+.yt-profile-avatar { display: block; width: 26px; height: 26px; overflow: hidden; border-radius: 50%; }
+.yt-profile-avatar>img { display: block; width: 100%; height: 100%; }
+.yt-searchbar { display: flex; gap: 10px; align-items: center; flex-shrink: 0; height: 54px; padding: 5px 12px 6px; }
+.yt-searchbar>button { width: 28px; height: 38px; display: grid; place-items: center; flex-shrink: 0; }
+.yt-searchbar>.search-field { flex: 1; min-width: 0; height: 38px; border-radius: 22px; margin: 0; padding: 0 13px; background: #f0f0f0; }
+.yt-searchbar input { font-size: 15px; }
+.youtube-app .nav-btn { color: #111; }
+.youtube-app .nav-back-label { display: none; }
+.yt-notification-empty { padding: 120px 24px 40px; text-align: center; color: #777; }
+.yt-notification-empty>.icon { width: 53px; height: 53px; margin: 0 auto 22px; }
+.yt-notification-empty h1 { margin: 0; font-size: 17px; font-weight: 500; }
+.youtube-app .yt-you { padding-top: 22px; }
+.youtube-app .yt-chips { padding-top: 10px; }
+@media (max-width: 370px) {
+  .yt-sections { gap: 21px; padding-left: 14px; padding-right: 14px; }
+  .yt-sections button { font-size: 15px; }
+  .youtube-app .yt-card-copy strong { font-size: 15px; }
+  .youtube-app .yt-card-copy small { font-size: 11px; }
+}
+
+/* Static Shorts cards: a portrait thumbnail, two-line title, channel and age. */
+.yt-shorts-shelf { padding: 4px 12px 20px; }
+.yt-shorts-heading { display: flex; align-items: center; gap: 7px; min-height: 47px; margin-bottom: 9px; }
+.yt-shorts-logo { display: inline-flex; color: #ff0033; }
+.yt-shorts-logo .icon { width: 22px; height: 25px; }
+.yt-shorts-heading h2 { margin: 0; font-size: 20px; line-height: 27px; font-weight: 750; letter-spacing: -.4px; }
+.yt-shorts-menu { display: inline-flex; margin-left: auto; }
+.yt-shorts-menu .icon { width: 22px; height: 22px; }
+.yt-shorts-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); align-items: start; gap: 22px 10px; padding: 12px 12px 20px; }
+.yt-shorts-shelf .yt-shorts-grid { padding: 0; }
+.yt-short-card { min-width: 0; margin: 0; color: #111; }
+.yt-short-thumbnail { position: relative; aspect-ratio: 2/3; border-radius: 10px; overflow: hidden; background: #eee; }
+.yt-short-thumbnail>img { display: block; width: 100%; height: 100%; object-fit: cover; filter: brightness(.7); }
+.yt-short-more { position: absolute; top: 10px; right: 8px; color: #fff; }
+.yt-short-more .icon { width: 21px; height: 21px; }
+.yt-short-title { position: absolute; left: 10px; right: 10px; bottom: 11px; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; text-overflow: ellipsis; color: #fff; text-shadow: 0 1px 3px #000b; font-size: 14px; line-height: 19px; font-weight: 750; letter-spacing: -.2px; overflow-wrap: anywhere; }
+.yt-short-info { display: flex; align-items: flex-start; gap: 8px; padding-top: 9px; }
+.yt-short-info>.avatar { width: 34px; height: 34px; flex-shrink: 0; font-size: 14px; }
+.yt-short-copy { flex: 1; min-width: 0; }
+.yt-short-channel { margin: 0; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; color: #606060; font-size: 12px; line-height: 17px; font-weight: 500; letter-spacing: -.2px; }
+.yt-short-stats { margin: 3px 0 0; color: #606060; font-size: 11px; line-height: 16px; font-weight: 450; letter-spacing: -.2px; }
+
+/* A local watch page for the one openable fictional video. */
+.youtube-app .yt-preview-player { min-height: 0; overflow: hidden; color: #fff; }
+.yt-preview-player>img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.yt-player-topbar { position: absolute; top: 8px; left: 9px; right: 9px; display: flex; justify-content: space-between; }
+.yt-player-topbar button { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 50%; background: #0003; color: #fff; }
+.yt-player-topbar button:disabled { opacity: 1; cursor: default; }
+.yt-player-topbar .icon { width: 24px; height: 24px; }
+.yt-player-play { position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); filter: drop-shadow(0 1px 3px #0004); }
+.yt-player-play .icon { width: 43px; height: 43px; }
+.yt-preview-controls { position: absolute; bottom: 17px; left: 13px; right: 14px; display: flex; align-items: center; gap: 15px; font-size: 12px; line-height: 20px; }
+.yt-preview-hd { margin-left: auto; border: 1px solid #fff9; border-radius: 2px; padding: 0 2px; font-size: 10px; line-height: 13px; font-weight: 650; }
+.yt-preview-controls .icon { width: 21px; height: 21px; }
+.yt-preview-progress { position: absolute; left: 0; right: 0; bottom: 0; height: 3px; background: #ffffff4d; }
+.yt-preview-progress::before { content: ""; display: block; width: 2%; height: 100%; background: #f03; }
+.youtube-app .yt-watch-scroll { min-height: 0; padding-bottom: 40px; }
+.yt-watch-page .yt-watch-info { padding: 15px 14px 18px; }
+.yt-watch-page .yt-watch-info h1 { margin: 0 0 6px; font-size: 20px; line-height: 27px; font-weight: 700; letter-spacing: -.45px; }
+.yt-watch-meta { margin: 0 0 17px; color: #606060; font-size: 12px; line-height: 18px; }
+.yt-watch-page .yt-channel-row { gap: 10px; }
+.yt-watch-page .yt-channel-row>.avatar { width: 35px; height: 35px; font-size: 15px; }
+.yt-watch-page .yt-channel-row strong { min-width: 0; font-size: 14px; line-height: 20px; font-weight: 650; }
+.yt-watch-page .yt-subscribe { padding: 9px 15px; font-size: 12px; line-height: 18px; font-weight: 600; }
+.yt-watch-page .yt-watch-actions { gap: 9px; margin-top: 17px; }
+.yt-watch-page .yt-watch-actions button { padding: 9px 13px; font-size: 12px; line-height: 18px; }
+.yt-watch-page .yt-watch-actions .icon { width: 18px; height: 18px; }
+.yt-watch-page button:disabled { opacity: 1; cursor: default; }
+.yt-thumb-down { transform: rotate(180deg); }
+.yt-comments { padding: 0 14px; border-top: 1px solid #ececec; }
+.yt-comments-header { display: flex; align-items: center; justify-content: space-between; min-height: 60px; gap: 12px; }
+.yt-comments-header h2 { margin: 0; font-size: 18px; line-height: 25px; font-weight: 700; letter-spacing: -.3px; }
+.yt-comments-header h2 span { margin-left: 5px; font-size: 16px; font-weight: 400; }
+.yt-comments-header>button { display: grid; place-items: center; width: 38px; height: 38px; }
+.yt-comments-header .icon { width: 23px; height: 23px; }
+.yt-comment-list,.yt-comment-replies { list-style: none; padding: 0; margin: 0; }
+.yt-comment { margin: 0 0 24px; }
+.yt-comment-row { display: flex; align-items: flex-start; gap: 11px; }
+.yt-comment-row>.avatar { width: 32px; height: 32px; flex-shrink: 0; font-size: 13px; }
+.yt-comment-body { min-width: 0; flex: 1; }
+.yt-comment-body header { display: flex; flex-wrap: wrap; align-items: baseline; gap: 3px 7px; font-size: 11px; line-height: 17px; }
+.yt-comment-body header strong { color: #303030; font-weight: 500; }
+.yt-comment-body header span { color: #737373; }
+.yt-comment-body p { margin: 4px 0 10px; color: #111; font-size: 14px; line-height: 21px; font-weight: 400; letter-spacing: -.2px; overflow-wrap: anywhere; }
+.yt-comment-actions { display: flex; align-items: center; gap: 20px; padding-top: 2px; color: #111; font-size: 13px; line-height: 20px; }
+.yt-comment-actions .icon { width: 18px; height: 18px; }
+.yt-comment-like { display: inline-flex; align-items: center; gap: 5px; }
+.yt-comment-like-count { font-weight: 500; letter-spacing: -.15px; font-variant-numeric: tabular-nums; }
+.yt-comment-reply { margin-left: 5px; }
+.yt-comment-replies { margin: 19px 0 0 43px; }
+.yt-comment-replies>.yt-comment { margin-bottom: 20px; }
+.yt-comment-replies>.yt-comment:last-child { margin-bottom: 0; }
+.yt-comment.is-reply .yt-comment-row { gap: 9px; }
+.yt-comment.is-reply .avatar { width: 24px; height: 24px; font-size: 10px; }
+@media (max-width:350px) {
+  .yt-shorts-grid { column-gap: 8px; }
+  .yt-short-title { left: 8px; right: 8px; font-size: 13px; line-height: 18px; }
+  .yt-short-info { gap: 6px; }
+  .yt-short-info>.avatar { width: 29px; height: 29px; font-size: 12px; }
+  .yt-short-channel { font-size: 11px; }
+  .yt-short-stats { font-size: 10.5px; }
+}

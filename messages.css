@@ -1,0 +1,74 @@
+/* Floating contact controls and read-only SMS / iMessage conversations. */
+.avatar.ios-contact-avatar { display: grid; place-items: center; background: linear-gradient(170deg,#a8c2e1,#787ab8); color: #fff; line-height: 1; font-weight: 400; }
+.ios-contact-avatar .contact-monogram { display: block; font-size: inherit; font-weight: inherit; line-height: 1; letter-spacing: -.6px; }
+.ios-contact-avatar .contact-monogram[data-length="2"] { font-size: .84em; letter-spacing: -1.2px; }
+.message-thread-header>.ios-contact-avatar { font-size: 32px; }
+.messages-app .native-compose:disabled { opacity: 1; cursor: default; }
+.messages-thread-app { padding-top: 58px; background: #fff; color: #000; }
+.message-thread-top-fade {
+  position: absolute; inset: 0 0 auto; z-index: 6; height: 168px;
+  background: linear-gradient(#fff 0 31%,#fffffff2 69%,#ffffff00);
+  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  mask-image: linear-gradient(#000 0 81%,transparent); -webkit-mask-image: linear-gradient(#000 0 81%,transparent);
+  pointer-events: none;
+}
+.message-thread-header { position: absolute; top: 59px; left: 0; right: 0; z-index: 8; height: 89px; pointer-events: none; }
+.message-glass {
+  border: .7px solid #fff; background: #ffffffc9;
+  box-shadow: inset 0 1px 1px #fff,0 4px 30px #24253406;
+  backdrop-filter: blur(24px) saturate(1.3); -webkit-backdrop-filter: blur(24px) saturate(1.3);
+}
+.message-thread-header>.messages-contact-avatar { position: absolute; top: 0; left: calc(50% - 30px); width: 60px; height: 60px; box-shadow: 0 3px 5px #293b6814; }
+.message-thread-back {
+  position: absolute; top: 0; left: 16px; height: 44px; min-width: 90px;
+  display: flex; align-items: center; justify-content: center; gap: 5px;
+  padding: 0 14px 0 10px; border-radius: 28px; pointer-events: auto;
+}
+.message-thread-back>.icon { width: 22px; height: 27px; flex-shrink: 0; }
+.message-thread-back>span { display: grid; place-items: center; min-width: 37px; height: 22px; padding: 0 7px; border-radius: 14px; color: #fff; background: #171719; font-size: 14px; line-height: 22px; font-weight: 750; letter-spacing: .1px; }
+.message-thread-name {
+  position: absolute; top: 55px; left: 50%; transform: translateX(-50%);
+  height: 32px; max-width: 75%; padding: 0 10px 0 17px; border-radius: 22px;
+  display: flex; align-items: center; justify-content: center; gap: 6px;
+}
+.message-thread-name strong { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; font-size: 17px; line-height: 22px; font-weight: 750; letter-spacing: -.3px; }
+.message-thread-name>.icon { flex-shrink: 0; width: 13px; height: 18px; color: #adadb1; }
+.messages-thread-app .chat-bubbles { padding: 110px 16px 123px; gap: 4px; scroll-padding: 176px 0 110px; scrollbar-width: none; }
+.messages-thread-app .chat-bubbles::-webkit-scrollbar { display: none; }
+.message-thread-start { display: flex; flex-direction: column; align-items: center; flex-shrink: 0; margin-bottom: 3px; color: #8e8e93; }
+.message-transport,.message-encryption { display: flex; align-items: center; justify-content: center; font-size: 11.5px; line-height: 14px; font-weight: 600; letter-spacing: -.1px; }
+.message-encryption { gap: 3px; }
+.message-encryption>.icon { width: 9px; height: 10px; }
+.messages-thread-app .message-date-separator { display: block; flex-shrink: 0; text-align: center; color: #8e8e93; font-size: 11.5px; line-height: 15px; font-weight: 600; letter-spacing: -.1px; margin: 9px 0 4px; }
+.message-thread-start .message-date-separator { margin: 1px 0 0; }
+.messages-thread-app[data-channel="imessage"] .message-thread-start .message-date-separator { margin-top: 14px; }
+.messages-thread-app .bubble-wrap { max-width: 75%; flex-shrink: 0; gap: 0; }
+.messages-thread-app .bubble-wrap.mine { max-width: 84%; }
+.messages-thread-app .bubble-wrap.message-new-speaker { margin-top: 6px; }
+.device[data-app="messages"] .messages-thread-app .bubble {
+  position: relative; padding: 10px 14px; border-radius: 22px;
+  color: #000; background: #e9e9eb; font-size: 17px; line-height: 21px;
+  font-weight: 500; letter-spacing: -.25px;
+}
+.device[data-app="messages"] .messages-thread-app .mine .bubble { color: #fff; background: #34d65e; }
+.device[data-app="messages"] .messages-thread-app[data-channel="imessage"] .mine .bubble { background: linear-gradient(#32a5fb,#078bff); }
+.messages-thread-app .message-group-end>.bubble::before { content: ""; position: absolute; bottom: 0; left: -7px; width: 19px; height: 20px; background: #e9e9eb; border-bottom-right-radius: 16px; }
+.messages-thread-app .message-group-end>.bubble::after { content: ""; position: absolute; bottom: 0; left: -12px; width: 12px; height: 21px; border-bottom-right-radius: 12px; background: #fff; }
+.messages-thread-app .message-group-end.mine>.bubble::before { left: auto; right: -7px; border-bottom-right-radius: 0; border-bottom-left-radius: 16px; background: #34d65e; }
+.messages-thread-app .message-group-end.mine>.bubble::after { left: auto; right: -12px; border-bottom-right-radius: 0; border-bottom-left-radius: 12px; }
+.messages-thread-app[data-channel="imessage"] .message-group-end.mine>.bubble::before { background: #078bff; }
+.message-delivered { margin: 6px 5px 0; color: #8e8e93; font-size: 11px; line-height: 14px; font-weight: 600; }
+.message-thread-bottom-fade { position: absolute; inset: auto 0 0; z-index: 6; height: 115px; background: linear-gradient(transparent,#ffffffd9 53%,#fff); pointer-events: none; }
+.message-static-composer { position: absolute; z-index: 8; bottom: 28px; left: 28px; right: 28px; height: 40px; display: flex; gap: 12px; align-items: center; }
+.message-compose-plus { display: grid; place-items: center; flex-shrink: 0; width: 40px; height: 40px; border-radius: 50%; color: #000; }
+.message-compose-plus:disabled { opacity: 1; cursor: default; }
+.message-compose-plus>.icon { width: 24px; height: 24px; }
+.message-compose-placeholder { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex: 1; min-width: 0; height: 40px; border-radius: 24px; padding: 0 14px 0 17px; color: #b8bac0; }
+.message-compose-placeholder>span { min-width: 0; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; font-size: 17px; font-weight: 600; letter-spacing: -.4px; }
+.message-compose-placeholder>.icon { width: 19px; height: 23px; flex-shrink: 0; }
+@media (max-width:350px) {
+  .message-thread-back { left: 13px; min-width: 84px; padding-right: 11px; }
+  .message-static-composer { left: 22px; right: 22px; gap: 10px; }
+  .messages-thread-app .chat-bubbles { padding-left: 14px; padding-right: 14px; }
+  .messages-thread-app .bubble-wrap { max-width: 80%; }
+}

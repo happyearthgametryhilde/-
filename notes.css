@@ -1,0 +1,49 @@
+/* Note detail screens follow the supplied IMG_7326 and IMG_7325 references. */
+.device[data-app="notes"] .notes-editor-view { position: relative; display: block; padding: 0; background: #fff; color: #484848; }
+.notes-editor-topbar { position: absolute; z-index: 12; top: 59px; left: 16px; right: 16px; height: 44px; display: flex; align-items: center; gap: 12px; }
+.notes-glass { background: #ffffffc9; border: .6px solid #fff; box-shadow: 0 8px 28px #00000008; backdrop-filter: blur(22px); -webkit-backdrop-filter: blur(22px); color: #1c1c1e; }
+.notes-editor-topbar>.notes-glass { height: 44px; border-radius: 24px; }
+.notes-back,.notes-undo-edit { display: grid; place-items: center; flex: 0 0 44px; width: 44px; padding: 0; }
+.notes-top-spacer { flex: 1; }
+.notes-back .icon { width: 26px; height: 26px; }
+.notes-undo-edit .icon { width: 25px; height: 25px; }
+.notes-editor-view button:disabled { opacity: 1; color: #1c1c1e; cursor: default; }
+.notes-share-more { display: flex; align-items: center; width: 104px; flex-shrink: 0; }
+.notes-share-more>button,.notes-editor-options>summary { display: grid; place-items: center; width: 52px; height: 44px; padding: 0; }
+.notes-share-more>button .icon { width: 24px; height: 26px; }
+.notes-editor-options { position: relative; }
+.notes-editor-options>summary { list-style: none; cursor: pointer; }
+.notes-editor-options>summary::-webkit-details-marker { display: none; }
+.notes-editor-options>summary .icon { width: 26px; height: 26px; }
+.notes-editor-options>summary:focus-visible { outline: 3px solid #64b9ff; border-radius: 22px; }
+.notes-editor-options-menu { position: absolute; top: 54px; right: 0; width: 165px; padding: 6px; border: .7px solid #fff; border-radius: 18px; background: #fffffff2; box-shadow: 0 8px 28px #0002; backdrop-filter: blur(22px); -webkit-backdrop-filter: blur(22px); }
+.notes-editor-options-menu button { display: flex; align-items: center; gap: 10px; width: 100%; padding: 11px 9px; font-size: 15px; color: #ff3b30; }
+.notes-editor-options-menu .icon { width: 19px; height: 19px; }
+.notes-editor-content { position: absolute; inset: 118px 26px 110px; padding: 0 0 20px; margin: 0; overflow-x: hidden; overflow-y: auto; scrollbar-width: none; }
+.notes-editor-content::-webkit-scrollbar { display: none; }
+.notes-editor-view .note-title-input { display: block; width: 100%; height: 38px; margin: 0 0 32px; padding: 0; border: 0; background: transparent; color: #484848; font-size: 26px; line-height: 38px; font-weight: 700; letter-spacing: -.7px; outline: none; }
+.notes-editor-view .note-body-input { display: block; width: 100%; min-height: 260px; margin: 0; padding: 0; border: 0; border-radius: 0; background: transparent; color: #484848; font-size: 16px; line-height: 26px; font-weight: 550; letter-spacing: -.3px; resize: none; outline: none; overflow: hidden; word-break: keep-all; overflow-wrap: anywhere; }
+.note-checklist { width: 100%; }
+.note-check-row { display: flex; align-items: flex-start; gap: 12px; min-height: 32px; }
+.note-check-toggle { display: grid; place-items: center; width: 22px; height: 22px; flex: 0 0 22px; margin-top: 2px; border: 2px solid #c5c5c7; border-radius: 50%; background: transparent; }
+.note-check-toggle .icon { width: 16px; height: 16px; visibility: hidden; }
+.note-check-toggle[aria-checked="true"] { border-color: #e3ad00; background: #e3ad00; color: #fff; }
+.note-check-toggle[aria-checked="true"] .icon { visibility: visible; }
+.note-check-text { display: block; width: 100%; flex: 1; min-height: 26px; margin: 0 0 6px; padding: 0; border: 0; border-radius: 0; outline: none; resize: none; overflow: hidden; background: transparent; color: #484848; font-size: 16px; line-height: 26px; font-weight: 600; letter-spacing: -.45px; word-break: keep-all; overflow-wrap: anywhere; }
+.note-check-row.is-checked .note-check-text { color: #929294; }
+.notes-editor-footer { position: absolute; z-index: 10; left: 28px; right: 28px; bottom: 28px; height: 48px; display: flex; align-items: center; justify-content: space-between; gap: 20px; pointer-events: none; }
+.notes-editor-tools { display: flex; align-items: center; justify-content: space-around; width: 220px; height: 48px; flex-shrink: 0; padding: 0 4px; border-radius: 28px; pointer-events: auto; }
+.notes-editor-tools button { display: grid; place-items: center; width: 49px; height: 46px; }
+.notes-editor-tools .icon { width: 25px; height: 25px; }
+.notes-editor-tools button:last-child .icon { width: 27px; height: 27px; }
+.notes-editor-compose { display: grid; place-items: center; width: 48px; height: 48px; flex: 0 0 48px; padding: 0; border-radius: 50%; pointer-events: auto; }
+.notes-editor-compose .icon { width: 25px; height: 25px; }
+.notes-save-status { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+@media (max-width:350px) {
+  .notes-editor-content { left: 21px; right: 21px; }
+  .notes-editor-view .note-body-input,.note-check-text { font-size: 15px; }
+  .note-check-row { gap: 10px; }
+  .notes-editor-footer { left: 22px; right: 22px; gap: 14px; }
+  .notes-editor-tools { width: 204px; }
+  .notes-editor-tools button { width: 45px; }
+}

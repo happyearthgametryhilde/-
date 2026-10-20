@@ -1,0 +1,144 @@
+/* BBinside combines the supplied compact gallery and circular-vote layouts. */
+.google-fan-results .fan-source-dc>span { padding-right: 2px; font: italic 800 18px/1 Arial,sans-serif; letter-spacing: -2px; }
+.google-native-app.fan-theme-dc { --fan-accent: #3d4b94; --fan-line: #e0e3ed; color: #171717; }
+.fan-theme-dc .bb-topbar { min-height: 64px; gap: 9px; padding: 10px 9px; background: #303b7d; }
+.fan-theme-dc .bb-topbar .bb-brand { position: relative; flex: 0 0 34px; width: 34px; height: 36px; margin: 0; border-radius: 7px; background: #fff; color: #3d4b94; }
+.bb-brand>span:first-child { padding-right: 3px; font: italic 800 25px/1 Arial,sans-serif; letter-spacing: -3px; }
+.bb-brand-label { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.bb-search-bar { display: flex; align-items: center; flex: 1; min-width: 0; height: 39px; border: 1px solid #202b66; border-radius: 2px; background: #fff; color: #3d4b94; }
+.bb-search-bar>button { display: grid; place-items: center; flex: 0 0 31px; height: 29px; }
+.bb-search-bar>button:first-child { border-right: 1px solid #e0e1e8; color: #9da0a9; }
+.bb-search-bar .icon { width: 21px; height: 21px; }
+.bb-search-bar>span { flex: 1; min-width: 0; overflow: hidden; padding-left: 8px; color: #a3a3a3; font-size: 12px; line-height: 19px; white-space: nowrap; text-overflow: ellipsis; }
+.bb-search-bar>.bb-recent { flex: 0 0 66px; padding: 0 6px; border-left: 1px solid #dedfe8; color: #555; font-size: 11px; line-height: 18px; font-weight: 650; white-space: nowrap; }
+.fan-theme-dc .bb-site-nav { min-height: 40px; justify-content: space-between; gap: 13px; padding: 0 12px; overflow-x: auto; scrollbar-width: none; background: #414e91; color: #fff; font-size: 13px; line-height: 21px; }
+.bb-site-nav>* { flex-shrink: 0; }
+.fan-theme-dc .bb-site-nav>strong { color: #ffea25; font-weight: 750; }
+.fan-theme-dc .bb-gallery-intro { min-height: 61px; gap: 8px; padding: 12px; border-bottom: 1px solid var(--fan-line); }
+.fan-theme-dc .bb-gallery-intro .fan-board-name { font-size: 21px; line-height: 29px; letter-spacing: -.7px; white-space: nowrap; }
+.fan-theme-dc .dc-minor-mark { width: 19px; height: 19px; border: 1.4px solid #333; color: #333; font-size: 13px; font-weight: 750; vertical-align: 1px; }
+.bb-gallery-tools { display: flex; align-items: center; flex-shrink: 0; gap: 8px; color: #3e3e3e; font-size: 10px; line-height: 17px; }
+.bb-gallery-tools>button { display: flex; align-items: center; gap: 2px; min-height: 28px; white-space: nowrap; }
+.bb-gallery-tools .bb-info>.icon { width: 19px; height: 19px; color: #aaa; }
+.bb-gallery-tools i { display: inline-grid; place-items: center; width: 11px; height: 11px; border-radius: 50%; background: #e33e3e; color: #fff; font: 700 8px/1 Arial,sans-serif; }
+.fan-theme-dc .bb-gallery-tools .fan-write { min-height: 30px; min-width: 51px; padding: 4px 7px; border: 1px solid var(--fan-accent); border-radius: 2px; background: #fff; color: var(--fan-accent); font-size: 12px; line-height: 20px; font-weight: 700; }
+.fan-theme-dc .bb-gallery-ad { display: block; padding: 11px 12px 12px; border-bottom: 1px solid var(--fan-line); background: #fff; }
+.bb-gallery-ad>div { display: flex; align-items: center; gap: 7px; }
+.fan-theme-dc .bb-gallery-ad strong { display: inline; margin: 0; color: #191919; font-size: 13px; line-height: 20px; font-weight: 700; }
+.fan-theme-dc .bb-gallery-ad .fan-ad-label { padding: 0 5px; border-color: #dedfe7; border-radius: 9px; color: #999; font-size: 9px; line-height: 14px; }
+.fan-theme-dc .bb-gallery-ad>p { display: block; overflow: hidden; margin: 5px 0 0; color: #999; font-size: 11px; line-height: 18px; white-space: nowrap; text-overflow: ellipsis; }
+.fan-theme-dc .fan-board-tabs { min-height: 50px; gap: 0; padding: 0 12px; border-bottom: 1px solid var(--fan-line); }
+.fan-theme-dc .fan-board-tabs>button { flex: 1; min-height: 49px; padding: 11px 0 10px; color: #272727; font-size: 16px; line-height: 25px; font-weight: 700; }
+.fan-theme-dc .fan-board-tabs>button[aria-pressed="true"] { color: var(--fan-accent); border-bottom-width: 3px; }
+.fan-theme-dc .fan-list-count { width: 50px; margin-left: 0; color: #606060; text-align: center; font-size: 12px; }
+.fan-theme-dc .dc-category-strip { gap: 23px; padding: 10px 12px; background: #fff; color: #666; font-size: 12px; line-height: 19px; }
+.fan-theme-dc .dc-category-strip>strong { color: #111; font-weight: 750; }
+.fan-theme-dc .fan-post-row { display: grid; grid-template-columns: 18px minmax(0,1fr) 26px; column-gap: 6px; row-gap: 5px; align-items: start; min-height: 84px; padding: 13px 12px 11px; }
+.fan-theme-dc .dc-row-symbol { width: 18px; padding-top: 3px; color: #aaa; }
+.fan-theme-dc .dc-row-content { min-width: 0; }
+.fan-theme-dc .fan-row-title { font-size: 15px; line-height: 23px; letter-spacing: -.35px; }
+.bb-row-comment-count { align-self: end; color: #ed3b3b; text-align: right; font: 14px/22px Arial,sans-serif; }
+.fan-theme-dc .fan-row-meta { grid-column: 1 / -1; display: flex; flex-wrap: wrap; margin-top: 0; color: #8b8b8b; font-size: 10.5px; line-height: 17px; letter-spacing: -.2px; }
+.fan-theme-dc .fan-row-meta>*+*::before { height: 12px; margin: 0 6px; border-color: #d7d7dc; vertical-align: -2px; }
+.fan-theme-dc .fan-list-tools { min-height: 67px; }
+.fan-theme-dc .fan-board-footer { min-height: 74px; padding: 22px 12px; background: #f0f2f7; color: #a1a4ae; }
+.fan-theme-dc .fan-board-footer>strong { color: #7f8493; font-weight: 500; }
+.fan-theme-dc .bb-post-header { padding: 15px 12px 0; }
+.fan-theme-dc .bb-post-header>h1 { margin: 0 0 11px; color: #090909; font-size: 17px; line-height: 26px; font-weight: 750; letter-spacing: -.5px; }
+.bb-mobile-icon { display: inline-block; width: 9px; height: 14px; margin-left: 2px; vertical-align: -1px; color: #a5a5ad; }
+.bb-post-byline { display: flex; align-items: center; flex-wrap: wrap; gap: 5px 8px; color: #777; font-size: 11px; line-height: 19px; }
+.bb-post-author { display: flex; align-items: baseline; gap: 3px; color: #191919; }
+.bb-post-author>strong { font-weight: 500; }
+.bb-post-byline>time { padding-left: 8px; border-left: 1px solid #dedee6; white-space: nowrap; }
+.bb-user-device { display: inline-block; color: #9d9da2; font: 12px/16px Arial,sans-serif; }
+.bb-gallog { min-height: 24px; margin-left: auto; padding: 2px 8px; border: 1px solid #dedee7; border-radius: 15px; color: #656565; font-size: 10px; line-height: 18px; font-weight: 600; }
+.fan-theme-dc .bb-post-stats { align-items: center; gap: 0; margin: 13px -12px 0; padding: 11px 12px; border-top: 1px solid var(--fan-line); color: #777; font-size: 12px; line-height: 20px; }
+.fan-theme-dc .bb-post-stats>span:nth-child(n) { color: #777; }
+.bb-post-stats>span+span::before { content: "|"; margin: 0 8px; color: #dedee7; }
+.bb-post-stats strong { color: #c94747; font-weight: 400; }
+.bb-post-stats>.bb-stat-comments { margin-left: 9px; padding: 0 9px; border: 1px solid #dedee8; border-radius: 16px; background: #f2f2f5; }
+.bb-post-stats>.bb-stat-comments::before { display: none; }
+.fan-theme-dc .fan-post-body { min-height: 190px; padding: 21px 12px 30px; color: #171717; font-size: 15px; line-height: 26px; letter-spacing: -.35px; }
+.fan-theme-dc .fan-post-body>p { margin-bottom: 17px; }
+.fan-theme-dc .fan-post-body>p[class^="bb-text-grow-"] { max-width: 100%; margin-top: 38px; margin-bottom: 38px; color: inherit; font-weight: 500; line-height: 1.4; letter-spacing: -.8px; overflow-wrap: anywhere; }
+.fan-theme-dc .fan-post-body>p.bb-text-grow-1 { font-size: 22px; }
+.fan-theme-dc .fan-post-body>p.bb-text-grow-2 { font-size: 30px; }
+.fan-theme-dc .fan-post-body>p.bb-text-grow-3 { font-size: 38px; }
+.bb-post-actions { padding: 13px 12px 29px; }
+.bb-vote-code { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 8px; }
+.bb-vote-code>input { width: 100%; min-width: 0; min-height: 41px; padding: 8px 10px; border: 1px solid #e0e2ed; border-radius: 0; background: #fff; color: #aaa; font-size: 12px; line-height: 20px; opacity: 1; -webkit-text-fill-color: currentColor; }
+.bb-vote-code>input::placeholder { color: #b0b0b6; opacity: 1; }
+.bb-captcha { display: flex; align-items: center; justify-content: space-between; min-width: 0; padding: 2px 9px 2px 2px; border: 1px solid #e0e2ed; background: #fff; }
+.bb-captcha>svg { display: block; flex: 1; min-width: 0; max-width: 140px; height: 34px; }
+.bb-captcha .icon { width: 17px; height: 17px; color: #a3a5ae; }
+.bb-vote-totals { display: flex; align-items: center; justify-content: center; gap: 13px; margin: 14px 0 13px; }
+.bb-vote-totals>button { display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 1px; flex-shrink: 0; width: 54px; height: 54px; border-radius: 50%; color: #fff; font-size: 10px; line-height: 13px; font-weight: 650; }
+.bb-vote-up { background: #3d4b94; }
+.bb-vote-down { background: #9fa1ad; }
+.bb-vote-totals .icon { width: 26px; height: 26px; }
+.bb-up-count { color: #3d4b94; font: 700 18px/24px Arial,sans-serif; }
+.bb-down-count { color: #7d808a; font: 700 17px/24px Arial,sans-serif; }
+.bb-post-tools { display: grid; grid-template-columns: repeat(5,minmax(0,1fr)); max-width: 308px; margin: 0 auto; padding: 7px 5px; border: 1px solid #e0e2ef; background: #f8f9fc; }
+.bb-post-tools>button { display: flex; align-items: center; justify-content: center; gap: 3px; min-width: 0; min-height: 22px; color: #a1a3ad; font-size: 9.5px; line-height: 16px; font-weight: 650; white-space: nowrap; }
+.bb-post-tools .icon { width: 16px; height: 16px; }
+.bb-post-tools>button:nth-child(2)>.icon { color: #009cff; }
+.bb-post-tools>button:last-child>.icon { color: #e42132; }
+.bb-tool-b { display: grid; place-items: center; width: 17px; height: 17px; border-radius: 50%; background: #a1a3ad; color: #fff; font: 700 11px/1 Arial,sans-serif; }
+.bb-inline-ad { display: flex; align-items: center; gap: 8px; min-height: 59px; padding: 8px 14px; border-top: 1px solid #e7e8ef; border-bottom: 1px solid #e7e8ef; background: #f4f5fa; }
+.bb-inline-ad>img { flex-shrink: 0; width: 36px; height: 36px; object-fit: contain; }
+.bb-inline-ad>div { flex: 1; min-width: 0; }
+.bb-inline-ad strong { display: block; color: #41424a; font-size: 12px; line-height: 18px; font-weight: 650; }
+.bb-inline-ad div>span { display: block; overflow: hidden; color: #989ba6; font-size: 10px; line-height: 17px; white-space: nowrap; text-overflow: ellipsis; }
+.bb-inline-ad>.fan-ad-label { border-color: #d7d9e3; border-radius: 10px; color: #a2a5b0; }
+.bb-post-navigation { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 12px; padding: 12px; border-bottom: 7px solid #f1f2f6; }
+.bb-post-navigation>button { min-height: 33px; padding: 5px 8px; border: 1px solid #d0d3df; color: #666; font-size: 13px; line-height: 21px; font-weight: 700; }
+.bb-post-navigation>button+button { border-color: var(--fan-accent); background: var(--fan-accent); color: #fff; }
+.fan-theme-dc .bb-comments { border-top: 0; }
+.bb-comments-heading { display: flex; align-items: center; gap: 5px; min-height: 46px; padding: 8px 12px; border-bottom: 1px solid var(--fan-line); }
+.bb-comments-heading>h2 { margin: 0; color: #111; font-size: 14px; line-height: 22px; font-weight: 700; white-space: nowrap; }
+.bb-comments-heading h2>strong { color: #ed3737; font-size: 12px; font-weight: 400; }
+.bb-comments-refresh { display: grid; place-items: center; flex-shrink: 0; width: 19px; height: 25px; color: #9da0ad; }
+.bb-comments-refresh .icon { width: 16px; height: 16px; }
+.bb-comments-spacer { flex: 1; min-width: 0; }
+.bb-comments-heading .bb-comment-register { padding: 1px 7px; border: 1px solid var(--fan-accent); border-radius: 13px; color: var(--fan-accent); font-size: 10px; line-height: 17px; white-space: nowrap; }
+.bb-comments-heading>span:not(.bb-comments-spacer) { padding-left: 5px; border-left: 1px solid #e0e2ec; color: #333; font-size: 10px; line-height: 15px; white-space: nowrap; }
+.fan-theme-dc .bb-comments .bb-comment { position: relative; padding: 12px; border-bottom: 1px solid var(--fan-line); }
+.bb-comment-author { gap: 3px; color: #171717; font-size: 12px; line-height: 19px; }
+.bb-comment-author>strong { font-weight: 500; }
+.bb-comment-author .fan-author-ip { color: #a2a2aa; font-size: 11px; }
+.fan-theme-dc .bb-comment>p { margin: 3px 0 0; color: #171717; font-size: 14px; line-height: 23px; letter-spacing: -.25px; }
+.bb-comment>time { display: block; margin-top: 5px; color: #a2a2a9; font-size: 10.5px; line-height: 17px; }
+.fan-theme-dc .bb-comments .bb-comment.is-reply { padding-left: 38px; background: #f8f9fb; }
+.bb-reply-mark { position: absolute; top: 14px; left: 20px; display: block; box-sizing: border-box; width: 8px; height: 8px; border-left: 3px solid #44529a; border-bottom: 3px solid #44529a; }
+.bb-reply-target { color: #7c9ce9; font-weight: 400; }
+.fan-theme-dc .bb-comment-compose { margin: 0; padding: 12px; border: 0; border-bottom: 1px solid var(--fan-line); border-radius: 0; background: #f4f4f6; }
+.bb-comment-compose .dc-comment-identity { gap: 8px; margin-bottom: 8px; }
+.fan-theme-dc .bb-comment-compose input,.fan-theme-dc .bb-comment-compose textarea { padding: 10px; border-color: #dfe2ed; border-radius: 5px; color: #999; font-size: 13px; line-height: 21px; }
+.fan-theme-dc .bb-comment-compose textarea { min-height: 88px; }
+.fan-theme-dc .bb-comment-compose input::placeholder,.fan-theme-dc .bb-comment-compose textarea::placeholder { color: #999; }
+.fan-theme-dc .bb-comment-compose button { min-width: 73px; min-height: 41px; border-color: #9299c1; border-radius: 5px; background: #9299c1; color: #fff; font-size: 14px; line-height: 22px; font-weight: 650; }
+.fan-theme-dc .fan-post-bottom { padding: 12px; }
+.fan-theme-dc .fan-post-bottom>button { min-width: 69px; min-height: 35px; padding: 7px 13px; border-color: #dfe2ed; border-radius: 5px; color: #555; font-size: 12px; line-height: 19px; font-weight: 500; }
+.fan-theme-dc .fan-post-bottom>.fan-list-return { border-color: var(--fan-accent); background: var(--fan-accent); color: #fff; }
+@media (max-width:350px) {
+  .fan-theme-dc .bb-topbar { gap: 7px; padding-left: 8px; padding-right: 8px; }
+  .fan-theme-dc .bb-topbar .bb-brand { flex-basis: 30px; width: 30px; height: 34px; }
+  .bb-brand>span:first-child { font-size: 23px; }
+  .bb-search-bar>button { flex-basis: 27px; }
+  .bb-search-bar>span { padding-left: 6px; font-size: 10px; }
+  .bb-search-bar>.bb-recent { flex-basis: 55px; padding-left: 4px; padding-right: 4px; font-size: 10px; }
+  .fan-theme-dc .bb-site-nav { gap: 12px; font-size: 12px; }
+  .fan-theme-dc .bb-gallery-intro .fan-board-name { font-size: 19px; }
+  .bb-gallery-tools { gap: 6px; }
+  .bb-gallery-tools .bb-info { display: none; }
+  .fan-theme-dc .dc-category-strip { gap: 19px; }
+  .fan-theme-dc .fan-row-meta { font-size: 9px; }
+  .fan-theme-dc .fan-row-meta>*+*::before { margin-left: 5px; margin-right: 5px; }
+  .fan-theme-dc .bb-post-header>h1 { font-size: 16px; line-height: 25px; }
+  .bb-post-byline { column-gap: 5px; font-size: 10px; }
+  .bb-post-author .fan-author-ip { font-size: 10px; }
+  .bb-gallog { padding-left: 6px; padding-right: 6px; font-size: 9px; }
+  .bb-comments-heading { column-gap: 4px; }
+  .bb-comments-heading .bb-comment-register { padding-left: 5px; padding-right: 5px; font-size: 9px; }
+  .bb-comments-heading>span:not(.bb-comments-spacer) { font-size: 9px; }
+}

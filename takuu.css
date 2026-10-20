@@ -1,0 +1,75 @@
+/* Takuu: compact mobile category, text-only notice and advertisement-free posts. */
+.fan-community-app.fan-theme-qoo { --fan-accent: #2e4d6d; color: #111; font-family: -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo",Arial,sans-serif; letter-spacing: -.25px; }
+.device[data-mode="app"]:has(.fan-theme-qoo) .status-bar { background: #2e4d6d; color: #fff; }
+.device.app-transition:has(.fan-theme-qoo) .status-bar { background: #2e4d6d; color: #fff; }
+.fan-theme-qoo .takuu-topbar { display: flex; align-items: center; justify-content: space-between; min-height: 44px; padding: 5px 12px 7px 10px; background: var(--fan-accent); color: #fff; }
+.fan-theme-qoo .takuu-brand { display: flex; align-items: center; gap: 10px; min-height: 34px; text-align: left; }
+.fan-theme-qoo .takuu-brand>strong { font: 700 23px/30px Arial,sans-serif; letter-spacing: -.55px; }
+.fan-theme-qoo .takuu-emblem { display: flex; flex-direction: column; justify-content: center; width: 21px; height: 23px; padding: 1px; border-radius: 1px; background: #fff; color: #2e4d6d; text-align: center; font: 400 12px/10px Arial,sans-serif; letter-spacing: -1.1px; }
+.fan-theme-qoo .takuu-emblem>b { font-weight: 400; }
+.fan-theme-qoo .takuu-login { display: grid; place-items: center; width: 28px; height: 32px; }
+.fan-theme-qoo .takuu-login>.icon { width: 20px; height: 20px; }
+.fan-theme-qoo .takuu-category { padding: 11px 10px 12px; border-top: 3px solid #e3e6e9; background: #70869f; color: #fff; }
+.fan-theme-qoo .takuu-category>h1,.fan-theme-qoo .takuu-category>h2 { margin: 0; font-size: 14px; line-height: 20px; font-weight: 400; letter-spacing: -.4px; }
+.fan-theme-qoo .takuu-tabs { display: flex; align-items: stretch; justify-content: space-between; gap: 3px; min-height: 42px; padding: 0 9px; border-bottom: 1px solid #ddd; white-space: nowrap; }
+.fan-theme-qoo .takuu-tabs>button { flex-shrink: 0; min-height: 42px; padding: 8px 2px 6px; border-bottom: 2px solid transparent; font-size: 12px; line-height: 22px; }
+.fan-theme-qoo .takuu-tabs>button[aria-pressed="true"] { border-bottom-color: #2e4d6d; color: #2e4d6d; }
+.fan-theme-qoo .takuu-tabs>button:nth-child(3) { color: #df7b92; }
+.fan-theme-qoo .takuu-tabs>button:nth-child(4) { color: #8586c4; }
+.fan-theme-qoo .takuu-tabs>button:nth-child(5) { color: #56a0ad; }
+.fan-theme-qoo .takuu-tabs>button:nth-child(6) { color: #af7ec4; }
+.fan-theme-qoo .takuu-tabs>button:nth-child(7) { color: #e79a82; }
+.fan-theme-qoo .takuu-tabs>span { align-self: center; color: #888; font-size: 10px; letter-spacing: 0; }
+.fan-theme-qoo .takuu-notice { display: flex; align-items: baseline; gap: 8px; padding: 13px 11px; border-bottom: 1px solid #d9d9d9; background: #f1f1f1; }
+.fan-theme-qoo .takuu-notice>span { flex-shrink: 0; color: #666; font-size: 11px; line-height: 21px; }
+.fan-theme-qoo .takuu-notice>strong { font-size: 14px; line-height: 22px; font-weight: 700; overflow-wrap: anywhere; }
+.fan-theme-qoo .takuu-post-row { display: flex; align-items: center; justify-content: space-between; gap: 14px; width: 100%; min-height: 72px; padding: 12px 11px; border-bottom: 1px solid #e1e1e1; text-align: left; }
+.fan-theme-qoo .takuu-row-copy { display: block; min-width: 0; flex: 1; }
+.fan-theme-qoo .takuu-row-title { display: block; color: #111; font-size: 15px; line-height: 22px; font-weight: 400; overflow-wrap: anywhere; }
+.fan-theme-qoo .takuu-row-meta { display: flex; align-items: center; flex-wrap: wrap; gap: 0; margin-top: 4px; color: #999; font-size: 11px; line-height: 17px; letter-spacing: -.1px; }
+.fan-theme-qoo .takuu-row-meta>*+*::before { content: "|"; padding: 0 7px; color: #d0d0d0; }
+.fan-theme-qoo .takuu-row-comments { display: grid; place-items: center; flex-shrink: 0; width: 30px; height: 30px; border: 1px solid #ddd; border-radius: 3px; color: #999; font-size: 13px; line-height: 18px; letter-spacing: 0; }
+.fan-theme-qoo .takuu-list-tools { display: flex; align-items: center; justify-content: space-between; min-height: 57px; padding: 10px; border-bottom: 1px solid #e4e4e4; }
+.fan-theme-qoo .takuu-hot { min-width: 77px; height: 30px; border: 1px solid #99364e; border-radius: 3px; color: #99364e; font: 400 12px/28px Arial,sans-serif; letter-spacing: 0; }
+.fan-theme-qoo .takuu-hot>span { display: inline-block; margin-right: 6px; padding-right: 7px; border-right: 1px solid #99364e; }
+.fan-theme-qoo .takuu-hot[aria-pressed="true"] { background: #fff0f3; }
+.fan-theme-qoo .takuu-write { display: flex; align-items: center; gap: 5px; min-height: 29px; padding: 4px 9px; border: 1px solid #2e4d6d; border-radius: 3px; color: #2e4d6d; font-size: 12px; }
+.fan-theme-qoo .takuu-write>.icon { width: 14px; height: 14px; }
+.fan-theme-qoo .takuu-pages { display: flex; align-items: center; justify-content: center; gap: 7px; padding: 15px 10px 19px; }
+.fan-theme-qoo .takuu-pages>* { display: grid; place-items: center; width: 27px; height: 30px; color: #777; font: 400 16px/30px Arial,sans-serif; }
+.fan-theme-qoo .takuu-pages>[aria-current="page"] { background: #2e4d6d; color: #fff; font-size: 14px; }
+.fan-theme-qoo .takuu-footer { padding: 27px 10px 23px; background: #f5f5f5; text-align: center; color: #aaa; }
+.fan-theme-qoo .takuu-footer>div { display: flex; justify-content: center; gap: 4px; margin: 0 0 4px; }
+.fan-theme-qoo .takuu-footer button { min-height: 24px; padding: 2px 7px; border: 1px solid #ddd; border-radius: 3px; background: #fafafa; color: #aaa; font-size: 11px; line-height: 18px; letter-spacing: -.3px; }
+.fan-theme-qoo .takuu-footer>p { margin: 19px 0 10px; font: 400 12px/18px Arial,sans-serif; letter-spacing: 0; }
+.fan-theme-qoo .takuu-online { display: inline-block; padding: 2px 4px; border-radius: 3px; background: #2e4d6d; color: #fff; font-size: 9px; line-height: 12px; letter-spacing: 0; }
+.fan-theme-qoo .takuu-post-header { padding: 12px 10px 14px; border-bottom: 1px solid #d7d7d7; }
+.fan-theme-qoo .takuu-post-header>h1 { margin: 0 0 8px; font-size: 16px; line-height: 24px; font-weight: 700; letter-spacing: -.45px; overflow-wrap: anywhere; }
+.fan-theme-qoo .takuu-post-url { margin: 0 0 5px; color: #888; font-size: 13px; line-height: 20px; letter-spacing: 0; overflow-wrap: anywhere; }
+.fan-theme-qoo .takuu-post-byline { display: flex; align-items: center; flex-wrap: wrap; gap: 0; margin: 0; color: #999; font-size: 12px; line-height: 20px; }
+.fan-theme-qoo .takuu-post-byline>*+*::before { content: "|"; margin: 0 8px; color: #d3d3d3; }
+.fan-theme-qoo .takuu-post-body { min-height: 220px; padding: 27px 15px 31px; font-size: 16px; line-height: 1.85; letter-spacing: -.35px; overflow-wrap: anywhere; }
+.fan-theme-qoo .takuu-post-body>p { margin: 0 0 26px; }
+.fan-theme-qoo .takuu-post-body>p:last-child { margin-bottom: 0; }
+.fan-theme-qoo .takuu-comments-heading { display: flex; align-items: center; gap: 13px; min-height: 46px; padding: 10px; border-bottom: 1px solid #ddd; border-top: 1px solid #eee; color: #999; }
+.fan-theme-qoo .takuu-comments-heading>h2 { display: flex; align-items: center; gap: 4px; margin: 0; color: #333; font-size: 13px; line-height: 22px; font-weight: 700; }
+.fan-theme-qoo .takuu-comments-heading>h2>strong { color: #376a9c; font-weight: 700; }
+.fan-theme-qoo .takuu-comments-heading>span { flex: 1; }
+.fan-theme-qoo .takuu-comments-heading>button { display: flex; align-items: center; gap: 3px; min-height: 25px; font-size: 12px; line-height: 21px; }
+.fan-theme-qoo .takuu-comments-heading .icon { width: 16px; height: 16px; }
+.fan-theme-qoo .takuu-comments>ol { margin: 0; padding: 0; list-style: none; }
+.fan-theme-qoo .takuu-comments li { padding: 13px 10px 15px; border-bottom: 1px solid #e3e3e3; }
+.fan-theme-qoo .takuu-comments li>div { display: flex; align-items: baseline; gap: 7px; }
+.fan-theme-qoo .takuu-comments li strong { color: #222; font-size: 12px; line-height: 20px; font-weight: 700; }
+.fan-theme-qoo .takuu-comments li time { color: #b6b6b6; font-size: 10px; line-height: 18px; letter-spacing: 0; }
+.fan-theme-qoo .takuu-comments li>p { margin: 5px 0 0; font-size: 14px; line-height: 23px; overflow-wrap: anywhere; }
+.fan-theme-qoo .takuu-refresh { display: flex; align-items: center; justify-content: center; gap: 5px; width: 100%; min-height: 42px; background: #f5f5f5; color: #999; font-size: 13px; }
+.fan-theme-qoo .takuu-refresh>.icon { width: 15px; height: 15px; }
+.fan-theme-qoo .takuu-post-bottom { display: flex; justify-content: flex-end; padding: 17px 10px 22px; }
+.fan-theme-qoo .takuu-post-bottom>button { display: flex; align-items: center; gap: 5px; min-height: 30px; padding: 3px 9px; border: 1px solid #2e4d6d; border-radius: 3px; color: #2e4d6d; font-size: 12px; }
+.fan-theme-qoo .takuu-post-bottom .icon { width: 14px; height: 14px; }
+@media(max-width: 350px) {
+  .fan-theme-qoo .takuu-tabs { gap: 1px; padding: 0 6px; }
+  .fan-theme-qoo .takuu-tabs>button { font-size: 11px; }
+  .fan-theme-qoo .takuu-post-row { gap: 10px; }
+}

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1500" role="img">
+  <title>Orange and red gradient 02</title>
+  <defs>
+    <linearGradient id="base" x1="100%" y1="0%" x2="0%" y2="100%"><stop stop-color="#dc6a35"/><stop offset="1" stop-color="#a13b24"/></linearGradient>
+    <radialGradient id="glow" cx="18%" cy="75%" r="85%"><stop stop-color="#f6af70" stop-opacity=".68"/><stop offset="1" stop-color="#f6af70" stop-opacity="0"/></radialGradient>
+    <radialGradient id="shade" cx="80%" cy="95%" r="76%"><stop stop-color="#c54c2b" stop-opacity=".5"/><stop offset="1" stop-color="#c54c2b" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="1200" height="1500" fill="url(#base)"/>
+  <rect width="1200" height="1500" fill="url(#glow)"/>
+  <rect width="1200" height="1500" fill="url(#shade)"/>
+</svg>

@@ -1,0 +1,214 @@
+/* Native app details measured against the supplied iPhone screenshots. */
+.app-icon-wrap { position: relative; display: block; flex-shrink: 0; width: fit-content; }
+.badge {
+  top: -10px; right: -10px; min-width: 26px; height: 26px; padding: 0 6px;
+  border-radius: 15px; background: #ff3b30; color: #fff; font-size: 17px;
+  font-weight: 650; line-height: 26px; letter-spacing: -.35px; box-shadow: none;
+  font-family: -apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;
+  font-variant-numeric: tabular-nums;
+}
+.app-tile:disabled { opacity: 1; cursor: default; }
+.app-tile:disabled:active .app-icon { filter: none; transform: none; }
+
+/* Photos: images behind a white title, bright glass controls and a smaller dock. */
+.photo-library { background: #fff; }
+.photo-library .photo-library-scroll { padding: 0 0 108px; }
+.photo-library .photo-grid { gap: 1px; }
+.photo-library-header { height: 127px; color: #fff; }
+.photo-library-header h1 {
+  left: 16px; top: 61px; margin: 0; font-size: 34px; line-height: 41px;
+  font-weight: 760; letter-spacing: -1.35px; text-shadow: 0 1px 6px #0002;
+}
+.photo-library-header .photo-library-count {
+  left: 16px; top: 102px; margin: 0; color: #fff; font-size: 16px;
+  line-height: 21px; letter-spacing: -.45px; font-weight: 650;
+}
+.photo-library-top-fade {
+  height: 141px; background: linear-gradient(#11171b85 0%,#171d2159 63%,#171d2100 100%);
+  backdrop-filter: blur(13px); -webkit-backdrop-filter: blur(13px);
+  mask-image: linear-gradient(#000 0 73%,transparent); -webkit-mask-image: linear-gradient(#000 0 73%,transparent);
+}
+.photo-library-bottom-fade { height: 114px; background: linear-gradient(transparent,#ffffffe3 37%,#fff 87%); }
+.photo-glass-button,.photo-library-dock,.photo-library-search {
+  border: .8px solid #ffffffcf; background: linear-gradient(145deg,#ffffffb8,#ffffff8c);
+  box-shadow: inset 0 1px 1px #fff,0 3px 18px #0000000a;
+  backdrop-filter: blur(27px) saturate(1.4); -webkit-backdrop-filter: blur(27px) saturate(1.4);
+}
+.photo-glass-button { top: 59px; height: 44px; color: #171719; }
+.photo-options-button { right: 89px; width: 44px; }
+.photo-select-button { right: 16px; width: 62px; font-size: 16px; font-weight: 650; border-radius: 25px; letter-spacing: -.6px; }
+.photo-menu-glyph { width: 23px; gap: 3px; align-items: center; }
+.photo-menu-glyph i { height: 3px; background: #171719; border-radius: 2px; }
+.photo-menu-glyph i:nth-child(1) { width: 23px; }
+.photo-menu-glyph i:nth-child(2) { width: 18px; }
+.photo-menu-glyph i:nth-child(3) { width: 13px; }
+.photo-library-dock { bottom: 21px; left: 20px; width: 188px; height: 62px; border-radius: 34px; padding: 4px; }
+.photo-library-tab { gap: 3px; font-size: 10px; line-height: 12px; font-weight: 650; color: #1c1c1e; border-radius: 29px; }
+.photo-library-tab .icon { width: 27px; height: 27px; }
+.photo-library-tab.active { background: #e8e8e9d9; color: #0088ff; box-shadow: none; }
+.photo-library-tab:disabled { opacity: 1; cursor: default; }
+.photo-library-search { right: 20px; bottom: 21px; width: 62px; height: 62px; color: #1c1c1e; }
+.photo-library-search .icon { width: 26px; height: 26px; color: inherit; }
+.device[data-app="photos"]:has(.photo-library) .status-bar { color: #fff; }
+.device[data-app="photos"]:has(.photo-library) .battery { border-color: #ffffff90; }
+
+/* Notes: large account title, grouped white cards and the floating search bar. */
+.device[data-app="notes"] .notes-library { position: relative; display: block; padding-top: 0; background: #f2f2f7; color: #000; }
+.notes-library .notes-topbar { position: absolute; top: 59px; left: 16px; right: 16px; height: 44px; padding: 0; justify-content: space-between; }
+.notes-library .notes-topbar .nav-btn {
+  width: 44px; min-width: 44px; height: 44px; padding: 0; color: #1c1c1e;
+  background: #ffffffc9; border: .7px solid #fff; box-shadow: inset 0 1px 1px #fff;
+}
+.notes-topbar .icon { width: 25px; height: 25px; }
+.notes-library-header { position: absolute; top: 123px; left: 16px; right: 16px; }
+.device[data-app="notes"] .notes-library-header .app-heading {
+  margin: 0; font-size: 34px; line-height: 41px; font-weight: 750; letter-spacing: normal; color: #000;
+}
+.notes-library-header .notes-count { margin: 0; padding: 0; text-align: left; font-size: 15px; line-height: 21px; color: #8e8e93; font-weight: 500; letter-spacing: normal; }
+.notes-library #notesResults { position: absolute; inset: 194px 0 0; padding-bottom: 120px; }
+.note-group { margin: 0 0 26px; }
+.notes-library .note-section { display: block; margin: 0 16px 12px; padding: 0; color: #000; font-size: 20px; font-weight: 700; line-height: 27px; letter-spacing: normal; }
+.note-pinned-toggle { display: flex; align-items: center; justify-content: space-between; width: 100%; text-align: left; font: inherit; color: inherit; padding-right: 14px; }
+.note-pinned-toggle .icon { width: 21px; height: 21px; color: #e3ad00; }
+.note-pinned-toggle[aria-expanded="false"] .icon { transform: rotate(-90deg); }
+.notes-library .note-list { margin: 0 16px; border-radius: 27px; overflow: hidden; background: #fff; }
+.notes-library .note-row { position: relative; display: block; padding: 10px 28px 11px; min-height: 79px; border: 0; }
+.notes-library .note-row+.note-row::before { content: ""; position: absolute; top: 0; left: 28px; right: 16px; height: .6px; background: #3c3c4329; }
+.notes-library .note-row strong { margin: 0 0 1px; color: #000; font-size: 17px; font-weight: 650; line-height: 22px; letter-spacing: normal; }
+.notes-library .note-preview { gap: 8px; color: #8e8e93; font-size: 15px; font-weight: 500; line-height: 20px; letter-spacing: normal; }
+.notes-library .note-preview time { color: inherit; }
+.note-folder { display: flex; align-items: center; gap: 3px; font-size: 14px; line-height: 19px; color: #8e8e93; font-weight: 550; letter-spacing: normal; }
+.note-folder .icon { width: 15px; height: 15px; }
+.notes-library::after { content: ""; position: absolute; bottom: 0; left: 0; right: 0; height: 121px; background: linear-gradient(transparent,#f2f2f7d9 45%,#f2f2f7); pointer-events: none; z-index: 5; }
+.notes-library .native-searchbar { position: absolute; left: 28px; right: 28px; bottom: 28px; height: 48px; gap: 12px; padding: 0; background: none; }
+.notes-library .native-searchbar .search-field,.notes-library .native-compose { height: 48px; border: .8px solid #fff; background: #ffffffb8; box-shadow: inset 0 1px 1px #fff,0 4px 24px #17172109; }
+.notes-library .native-searchbar .search-field { padding: 0 17px; gap: 10px; border-radius: 27px; }
+.notes-library .native-searchbar .search-field>.icon { color: #000; width: 20px; height: 20px; flex-shrink: 0; }
+.notes-library .native-searchbar input { min-width: 0; color: #000; font-size: 17px; font-weight: 600; letter-spacing: normal; }
+.notes-library .native-searchbar input::placeholder { color: #77777c; opacity: 1; }
+.notes-search-mic { display: grid; place-items: center; flex-shrink: 0; color: #000; }
+.notes-search-mic .icon { width: 21px; height: 23px; }
+.notes-library .native-compose { width: 48px; color: #1c1c1e; }
+.notes-library .native-compose .icon { width: 24px; height: 24px; }
+.notes-more-menu { position: absolute; top: 111px; right: 16px; z-index: 15; padding: 6px; background: #fffffff2; border: .7px solid #fff; border-radius: 19px; box-shadow: 0 8px 30px #0002; backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px); }
+.notes-more-menu button { padding: 12px 16px; color: #1c1c1e; font-size: 15px; }
+.device[data-app="notes"] .notes-editor-view { background: #fff; }
+.notes-editor-view .note-title-input { color: #000; font-size: 30px; }
+.notes-editor-view .note-body-input { color: #1c1c1e; font-size: 17px; line-height: 1.65; }
+
+/* Calendar: full-width month rows, weekend gray, and a red circle for today. */
+.calendar-app { display: block; padding-top: 0; background: #fff; color: #000; }
+.calendar-topbar { position: absolute; z-index: 8; top: 59px; left: 16px; right: 16px; height: 44px; display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+.calendar-glass { background: #ffffffcf; border: .7px solid #fff; border-radius: 27px; box-shadow: 0 2px 24px #25253009,inset 0 1px 1px #fff; backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px); }
+.calendar-year-button { display: flex; align-items: center; justify-content: center; gap: 5px; height: 44px; min-width: 112px; padding: 0 12px; font-size: 17px; font-weight: 650; letter-spacing: -.6px; white-space: nowrap; }
+.calendar-year-button .icon { width: 22px; height: 24px; flex-shrink: 0; }
+.calendar-top-tools { display: flex; align-items: center; width: 166px; height: 44px; }
+.calendar-top-tools button,.calendar-tool-decoration { flex: 1; min-width: 0; height: 44px; display: grid; place-items: center; color: #1c1c1e; }
+.calendar-top-tools .icon { width: 25px; height: 25px; }
+.calendar-top-tools button[aria-pressed="true"] { color: #ff3b30; }
+.calendar-app .calendar-month-header { position: absolute; top: 121px; left: 17px; right: 17px; padding: 0; }
+.calendar-month-header h1 { margin: 0; font-size: 34px; line-height: 42px; font-weight: 800; letter-spacing: -1.2px; }
+.calendar-app .calendar-weekdays { position: absolute; top: 166px; left: 0; right: 0; height: 18px; padding: 0; margin: 0; align-items: center; font-size: 10px; font-weight: 650; color: #000; }
+.calendar-weekdays span:first-child,.calendar-weekdays span:last-child { color: #8e8e93; }
+.calendar-month-scroll { position: absolute; inset: 183px 0 0; padding: 0 0 110px; }
+.calendar-app .calendar-days { padding: 0; grid-auto-rows: clamp(99px,30vw,118px); }
+.calendar-app .calendar-cell { display: flex; flex-direction: column; align-items: stretch; justify-content: flex-start; gap: 10px; height: auto; padding: 9px 2px 4px; border-top: .6px solid #dedee2; border-radius: 0; color: #000; overflow: hidden; }
+.calendar-empty-cell { border-top: .6px solid #dedee2; }
+.calendar-app .calendar-cell::after { display: none; }
+.calendar-app .calendar-cell .calendar-date-number { display: grid; place-items: center; margin: 0 auto; width: 39px; height: 39px; border-radius: 50%; font-size: 18px; line-height: 39px; font-weight: 700; background: none; color: #000; }
+.calendar-app .calendar-cell.weekend .calendar-date-number { color: #8e8e93; }
+.calendar-app .calendar-cell.selected:not(.today) .calendar-date-number { background: #ff3b3014; color: #ff3b30; }
+.calendar-app .calendar-cell.today .calendar-date-number { background: #ff3b30; color: #fff; }
+.calendar-app .calendar-cell .calendar-cell-events { display: flex; flex-direction: column; align-items: stretch; gap: 3px; width: 100%; height: auto; border-radius: 0; background: none; color: inherit; }
+.calendar-app .calendar-cell .calendar-event-chip { display: block; max-width: 100%; width: auto; height: 16px; padding: 0 3px; border-radius: 4px; color: color-mix(in srgb,var(--event-color) 55%,#111); background: color-mix(in srgb,var(--event-color) 22%,white); font-size: 10px; line-height: 16px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.calendar-next-month { display: block; width: 100%; height: 55px; border-top: .6px solid #dedee2; padding: 0 9px; text-align: left; font-size: 21px; font-weight: 750; color: #8e8e93; }
+.calendar-bottom-fade { position: absolute; bottom: 0; left: 0; right: 0; z-index: 5; height: 112px; background: linear-gradient(transparent,#ffffffb3 45%,#fff 94%); pointer-events: none; }
+.calendar-bottom-bar { position: absolute; bottom: 28px; left: 28px; right: 28px; height: 48px; z-index: 9; display: flex; align-items: center; justify-content: space-between; }
+.calendar-today { min-width: 62px; height: 48px; padding: 0 16px; font-size: 17px; font-weight: 650; }
+.calendar-bottom-tools { display: flex; align-items: center; width: 128px; height: 48px; padding: 0 3px; }
+.calendar-bottom-tools button,.calendar-bottom-tools .calendar-tool-decoration { display: grid; place-items: center; width: 50%; height: 48px; }
+.calendar-bottom-tools .icon { width: 25px; height: 25px; }
+.calendar-app .calendar-agenda { position: absolute; z-index: 12; bottom: 87px; left: 16px; right: 16px; margin: 0; max-height: 260px; overflow: auto; padding: 14px 18px; border: .7px solid #fff; border-radius: 25px; background: #fffffff0; box-shadow: 0 9px 38px #0002; backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px); }
+.calendar-agenda header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+.calendar-agenda .agenda-date { margin: 0; font-size: 18px; font-weight: 700; color: #000; }
+.calendar-agenda header button { display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; background: #eeeeef; }
+.calendar-agenda header .icon { width: 16px; height: 16px; }
+.calendar-agenda .empty-state { padding: 16px 0; }
+.calendar-list-panel { position: absolute; inset: 181px 0 95px; display: flex; flex-direction: column; }
+.calendar-search .search-field { margin: 10px 16px 16px; height: 44px; border-radius: 23px; }
+.calendar-list-event { display: flex; align-items: center; width: 100%; padding: 16px 20px; gap: 16px; text-align: left; }
+.calendar-list-date { width: 47px; flex-shrink: 0; display: flex; flex-direction: column; color: #8e8e93; font-size: 11px; text-align: center; }
+.calendar-list-date strong { font-size: 26px; font-weight: 600; color: #1c1c1e; }
+.calendar-list-copy { display: flex; flex: 1; min-width: 0; flex-direction: column; gap: 4px; border-left: 3px solid var(--event-color); padding-left: 12px; }
+.calendar-list-copy strong { font-size: 16px; font-weight: 600; }
+.calendar-list-copy time { color: #8e8e93; font-size: 13px; }
+.calendar-list-event>.icon { width: 16px; height: 16px; color: #c7c7cc; }
+.calendar-month-picker { position: absolute; inset: 185px 16px 95px; }
+.calendar-picker-arrows { display: flex; align-items: center; justify-content: space-between; padding: 8px; font-size: 22px; }
+.calendar-picker-arrows button { display: grid; place-items: center; width: 42px; height: 42px; border-radius: 50%; background: #f2f2f7; }
+.calendar-picker-arrows .icon { width: 19px; height: 19px; }
+.calendar-month-choices { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; padding: 14px 0; }
+.calendar-month-choices button { height: 58px; border-radius: 17px; background: #f5f5f7; font-size: 18px; font-weight: 600; }
+.calendar-month-choices button.active { color: #ff3b30; background: #ff3b3014; }
+.calendar-month-stepper { display: flex; justify-content: space-between; padding: 12px 9px; color: #ff3b30; font-size: 15px; }
+@media (max-width: 350px) {
+  .calendar-top-tools { width: 151px; }
+  .notes-library .native-searchbar { left: 20px; right: 20px; gap: 10px; }
+  .photo-library-dock { left: 16px; width: 178px; }
+  .photo-library-search { right: 16px; }
+}
+
+/* Photos is a scroll-only surface; visual controls are intentionally inert. */
+.photo-library button:disabled { opacity: 1; cursor: default; }
+.photo-library .photo-tile { pointer-events: none; }
+.photo-library .photo-tile img { -webkit-user-drag: none; user-select: none; }
+.photo-library-scroll:focus-visible { outline: 2px solid #0088ff; outline-offset: -2px; }
+
+/* Messages list follows the supplied iPhone inbox reference. */
+.messages-app { background: #fff; }
+.messages-topbar { position: relative; display: flex; flex-shrink: 0; align-items: center; justify-content: space-between; height: 48px; padding: 0 16px; }
+.messages-glass { height: 44px; border: .7px solid #fff; background: #ffffffd9; box-shadow: 0 4px 30px #30333d04; backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); color: #1c1c1e; }
+.messages-edit { min-width: 63px; padding: 0 17px; border-radius: 25px; font-size: 16px; font-weight: 650; letter-spacing: -.5px; }
+.messages-filter { display: grid; place-items: center; width: 44px; border-radius: 50%; }
+.messages-filter .icon { width: 25px; height: 25px; }
+.messages-filter.active { color: #0088ff; }
+.messages-app>.app-heading { font-size: 34px; line-height: 41px; font-weight: 750; letter-spacing: -1.15px; margin: 10px 16px 8px; }
+.messages-app .chat-list { padding-left: 26px; }
+.messages-app .chat-row { align-items: center; gap: 12px; min-height: 86px; padding: 14px 16px 14px 0; border: 0; }
+.messages-app .chat-row::after { content: ""; position: absolute; left: 57px; right: 16px; bottom: 0; height: .6px; background: #dedee2; }
+.messages-app .chat-row>.messages-contact-avatar { width: 45px; height: 45px; }
+.messages-contact-avatar { display: block; overflow: hidden; background: #9baed3; }
+.messages-contact-avatar img { display: block; width: 100%; height: 100%; }
+.messages-app .chat-row-copy { align-self: stretch; padding-top: 0; }
+.messages-app .chat-row-top { margin-bottom: 2px; gap: 7px; min-height: 21px; }
+.messages-app .chat-row-top strong { font-size: 17px; line-height: 21px; font-weight: 700; letter-spacing: -.25px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.messages-app .chat-row-top time { font-size: 14px; line-height: 21px; color: #8e8e93; gap: 9px; white-space: nowrap; flex-shrink: 0; }
+.messages-app .chat-row-top time .icon { width: 10px; height: 12px; color: #c6c6cb; stroke-width: 3; }
+.messages-app .chat-row-copy p { font-size: 15px; line-height: 20px; font-weight: 450; color: #8e8e93; letter-spacing: -.25px; white-space: pre-line; }
+.messages-app .chat-row .unread-dot { left: -18px; width: 11px; height: 11px; background: #0088ff; }
+.messages-app>.messages-list-scroll { padding-bottom: 135px; }
+.messages-bottom-fade { position: absolute; left: 0; right: 0; bottom: 0; height: 115px; z-index: 3; background: linear-gradient(transparent,#ffffffe6 60%,#fff); pointer-events: none; }
+.messages-app>.native-searchbar { position: absolute; left: 28px; right: 28px; bottom: 28px; padding: 0; gap: 12px; background: transparent; }
+.messages-app .native-searchbar .search-field { height: 48px; padding: 0 17px; border: .9px solid #fff; background: #ffffffbd; box-shadow: inset 0 1px 1px #fff,0 4px 25px #17172107; gap: 10px; }
+.messages-app .native-searchbar .search-field>.icon { width: 21px; height: 21px; color: #030507; }
+.messages-app .native-searchbar input { font-size: 17px; font-weight: 550; color: #1c1c1e; letter-spacing: -.4px; }
+.messages-app .native-searchbar input::placeholder { color: #737378; opacity: 1; }
+.messages-search-mic { display: grid; place-items: center; width: 22px; height: 24px; flex-shrink: 0; color: #030507; }
+.messages-search-mic .icon { width: 22px; height: 24px; }
+.messages-app .native-compose { width: 48px; height: 48px; color: #1c1c1e; border: .9px solid #fff; background: #ffffffbd; box-shadow: inset 0 1px 1px #fff,0 4px 25px #17172107; }
+.messages-app .native-compose .icon { width: 24px; height: 24px; }
+.messages-menu { position: absolute; z-index: 30; left: 16px; top: 108px; min-width: 190px; padding: 5px; border-radius: 19px; background: #fffffff2; border: .8px solid #fff; box-shadow: 0 8px 28px #0002; backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+.messages-menu button { display: flex; align-items: center; justify-content: space-between; gap: 15px; width: 100%; min-height: 43px; padding: 10px 12px; text-align: left; font-size: 15px; border-radius: 14px; }
+.messages-menu button[aria-checked="true"] { background: #f0f0f3; }
+.messages-menu .icon { width: 17px; height: 17px; }
+.messages-filter-menu { left: auto; right: 16px; }
+@media (max-width:350px) {
+  .messages-app .chat-list { padding-left: 24px; }
+  .messages-app .chat-row { gap: 10px; padding-right: 14px; }
+  .messages-app .chat-row>.messages-contact-avatar { width: 41px; height: 41px; }
+  .messages-app .chat-row::after { left: 51px; right: 14px; }
+  .messages-app .chat-row-top strong { font-size: 15px; }
+  .messages-app .chat-row-top time { font-size: 12px; gap: 5px; }
+  .messages-app .chat-row-copy p { font-size: 14px; }
+  .messages-app>.native-searchbar { left: 20px; right: 20px; }
+}

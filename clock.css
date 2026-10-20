@@ -1,0 +1,99 @@
+/* Clock artwork and app surfaces follow the supplied iOS screenshots. */
+.native-app-icon .clock-hand { background: #050505; box-shadow: 0 .5px .65px #0007; }
+.native-app-icon .clock-hand-hour { left: calc(50% - 1.15px); width: 2.3px; height: 15.5px; }
+.native-app-icon .clock-hand-minute { left: calc(50% - 1px); width: 2px; height: 23px; }
+.native-app-icon .clock-hand-second { left: calc(50% - .45px); width: .9px; height: 25px; background: #ff8c00; box-shadow: none; }
+.native-app-icon .clock-hand-second::after { width: .9px; height: 3px; bottom: -3px; }
+.clock-center { left: calc(50% - 1.65px); top: calc(50% - 1.65px); width: 3.3px; height: 3.3px; background: #ff8c00; border: .8px solid #161616; }
+.clock-native-app { display: block; padding-top: 0; background: #000; color: #fff; --blue: #ff9f0a; }
+.clock-topbar { position: absolute; z-index: 7; top: 59px; left: 16px; right: 16px; height: 44px; display: flex; align-items: center; justify-content: space-between; }
+.clock-glass { display: grid; place-items: center; height: 44px; border: .7px solid #ffffff13; background: linear-gradient(145deg,#262626c4,#151515c9); box-shadow: inset 0 1px 1px #ffffff0d; backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); color: #f3f3f5; }
+.clock-edit { min-width: 62px; padding: 0 15px; border-radius: 26px; font-size: 17px; font-weight: 650; letter-spacing: normal; }
+.clock-add { width: 44px; border-radius: 50%; }
+.clock-add .icon { width: 25px; height: 25px; }
+.clock-decoration { pointer-events: none; }
+.clock-heading { position: absolute; left: 16px; right: 16px; top: 118px; margin: 0; font-size: 34px; line-height: 44px; font-weight: 750; letter-spacing: normal; }
+.clock-content { position: absolute; top: 165px; bottom: 0; left: 16px; right: 16px; padding-bottom: 120px; }
+.clock-content-alarms { top: 194px; }
+.clock-sleep h2,.clock-other-alarms h2 { display: flex; align-items: center; gap: 5px; margin: 0; padding: 0 0 11px; border-bottom: .7px solid #2c2c2e; font-size: 20px; line-height: 26px; font-weight: 650; }
+.clock-sleep h2 .icon { width: 21px; height: 21px; }
+.clock-sleep-row { display: flex; align-items: center; justify-content: space-between; min-height: 72px; gap: 10px; border-bottom: .7px solid #2c2c2e; }
+.clock-sleep-row>span { font-size: 42px; line-height: 1.2; color: #8e8e93; font-weight: 300; letter-spacing: -1.2px; }
+.clock-sleep-row button { padding: 7px 10px; border-radius: 20px; background: #29292b; color: #ff9f0a; font-size: 15px; font-weight: 650; white-space: nowrap; }
+.clock-sleep { margin: 0 0 59px; }
+.clock-other-alarms .alarm-list { padding: 0; }
+.clock-native-app .alarm-row { position: relative; gap: 13px; min-height: 102px; padding: 7px 0 12px; border-bottom: .7px solid #2c2c2e; }
+.alarm-copy { flex: 1; min-width: 0; }
+.clock-native-app .alarm-time { font-family: -apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif; font-size: 58px; line-height: 66px; font-weight: 250; letter-spacing: -1.6px; color: #fff; font-variant-numeric: tabular-nums; }
+.clock-native-app .alarm-label { margin-top: 0; color: #fff; font-size: 13px; line-height: 18px; font-weight: 550; letter-spacing: normal; }
+.clock-native-app .alarm-row.disabled .alarm-time,.clock-native-app .alarm-row.disabled .alarm-label { color: #8e8e93; }
+.clock-native-app .alarm-row .toggle { flex-shrink: 0; width: 63px; height: 28px; background: #444446; }
+.clock-native-app .alarm-row .toggle::after { top: 2px; left: 2px; width: 24px; height: 24px; }
+.clock-native-app .alarm-row .toggle.on { background: #34c759; }
+.clock-native-app .alarm-row .toggle.on::after { transform: translateX(35px); }
+.clock-delete-alarm { width: 23px; height: 23px; display: grid; place-items: center; flex-shrink: 0; background: #ff453a; color: #fff; border-radius: 50%; }
+.clock-delete-alarm .icon { width: 17px; height: 17px; }
+.clock-empty { padding: 20px 0; color: #8e8e93; font-size: 22px; }
+.clock-bottom-fade { position: absolute; z-index: 4; bottom: 0; left: 0; right: 0; height: 117px; pointer-events: none; background: linear-gradient(transparent,#000b 50%,#000 95%); }
+.clock-tabs { position: absolute; z-index: 8; left: 21px; right: 21px; bottom: 21px; height: 62px; padding: 3px; display: flex; align-items: stretch; border: .8px solid #ffffff20; border-radius: 35px; background: linear-gradient(120deg,#252525cc,#151515d9); box-shadow: inset 0 0 0 .5px #ffffff0c; backdrop-filter: blur(26px); -webkit-backdrop-filter: blur(26px); }
+.clock-tabs button { display: flex; flex: 1; min-width: 0; flex-direction: column; align-items: center; justify-content: center; gap: 3px; border-radius: 31px; color: #f2f2f4; font-size: 10px; line-height: 13px; font-weight: 600; letter-spacing: -.2px; white-space: nowrap; }
+.clock-tabs button.active { color: #ffad45; background: #3d3d3fe6; }
+.clock-tabs .icon { width: 26px; height: 26px; }
+.world-clock-list { border-top: .7px solid #2c2c2e; }
+.world-clock-row { display: flex; align-items: center; justify-content: space-between; gap: 8px; min-height: 95px; padding: 15px 0; border-bottom: .7px solid #2c2c2e; }
+.world-clock-row p { margin: 0 0 3px; color: #8e8e93; font-size: 14px; line-height: 20px; font-weight: 550; white-space: nowrap; }
+.world-clock-row h2 { margin: 0; color: #fff; font-size: 25px; line-height: 31px; font-weight: 650; }
+.world-clock-row time { color: #fff; font-family: -apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif; font-size: 60px; line-height: 72px; letter-spacing: -1.6px; font-weight: 200; font-variant-numeric: tabular-nums; }
+.clock-tool-time { text-align: center; font-family: -apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif; font-variant-numeric: tabular-nums; font-weight: 200; letter-spacing: -2px; white-space: nowrap; }
+.clock-content-stopwatch,.clock-content-timer { inset: 0 16px; padding: 0; overflow: hidden; }
+.stopwatch-main,.timer-main { height: 100%; position: relative; }
+.stopwatch-main .clock-tool-time { position: absolute; top: min(24.5dvh,207px); left: 0; right: 0; padding: 0; font-size: clamp(62px,calc((100vw - 32px)*.24),86px); line-height: 1.12; }
+.clock-round-controls { position: absolute; left: 0; right: 0; display: flex; justify-content: space-between; gap: 20px; padding: 0; }
+.clock-round-controls button { display: grid; place-items: center; width: 84px; height: 84px; flex-shrink: 0; border-radius: 50%; border: 0; outline: 0; box-shadow: none; font-size: 17px; font-weight: 600; }
+.clock-round-controls button:focus-visible { outline: 2px solid #ff9f0a; outline-offset: 3px; }
+.clock-secondary { background: #1c1c1e; color: #fff; }
+.clock-secondary:disabled { opacity: 1; color: #8e8e93; }
+.clock-start { background: #063311; color: #30d158; }
+.clock-start:disabled { opacity: .45; }
+.clock-stop { background: #3d1013; color: #ff453a; }
+.clock-pause { background: #402b0a; color: #ff9f0a; }
+.stopwatch-main .clock-round-controls { top: min(46.3dvh,391px); height: 100px; padding-bottom: 16px; border-bottom: .6px solid #2c2c2e; }
+.stopwatch-page-dots { position: absolute; left: 50%; top: 39px; transform: translateX(-50%); display: flex; gap: 10px; }
+.stopwatch-page-dots span { width: 8px; height: 8px; background: #737373; border-radius: 50%; }
+.stopwatch-page-dots span:first-child { background: #fff; }
+.stopwatch-laps { position: absolute; top: calc(min(46.3dvh,391px) + 101px); bottom: 105px; left: 0; right: 0; overflow-y: auto; scrollbar-width: none; }
+.stopwatch-laps>div { display: flex; justify-content: space-between; padding: 14px 2px; border-bottom: .7px solid #2c2c2e; font-size: 16px; font-variant-numeric: tabular-nums; }
+.timer-main { --wheel-height: clamp(132px,22.5dvh,190px); }
+.timer-picker { position: absolute; top: min(29dvh,245px); left: 25px; right: 25px; height: var(--wheel-height); display: flex; }
+.timer-picker-selection { position: absolute; top: calc(50% - 17px); left: 5px; right: 5px; height: 34px; border-radius: 25px; background: #1c1c1ed9; pointer-events: none; }
+.timer-wheel-column { flex: 1; min-width: 0; height: 100%; position: relative; }
+.timer-wheel { height: 100%; padding: calc((var(--wheel-height) - var(--wheel-row,28px))/2) 0; overflow-x: hidden; overflow-y: scroll; overscroll-behavior: contain; scrollbar-width: none; scroll-snap-type: y mandatory; border-radius: 12px; touch-action: pan-y; mask-image: linear-gradient(transparent,#000 28%,#000 72%,transparent); -webkit-mask-image: linear-gradient(transparent,#000 28%,#000 72%,transparent); }
+.timer-wheel::-webkit-scrollbar { display: none; }
+.timer-wheel:focus-visible { outline: 1px solid #ff9f0a; outline-offset: -1px; }
+.timer-wheel-value { display: grid; place-items: center; height: var(--wheel-row,28px); flex-shrink: 0; scroll-snap-align: center; color: #b5b5ba; font-size: 22px; line-height: var(--wheel-row,28px); font-weight: 600; font-variant-numeric: tabular-nums; transform: translateX(-12px) scaleY(var(--wheel-scale,1)); opacity: var(--wheel-opacity,1); }
+.timer-wheel-value.is-selected { color: #fff; }
+.timer-wheel-unit { position: absolute; top: 50%; left: 52%; transform: translateY(-50%); font-size: 17px; line-height: 28px; font-weight: 600; color: #fff; white-space: nowrap; pointer-events: none; }
+.timer-idle-time { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.timer-main .clock-round-controls { top: min(52dvh,439px); height: 84px; }
+.timer-countdown { position: absolute; top: min(35dvh,296px); left: 0; right: 0; font-size: clamp(60px,19vw,80px); line-height: 1.2; }
+.timer-info-card { position: absolute; top: min(66dvh,557px); left: 0; right: 0; padding: 0 16px; border-radius: 27px; background: #1c1c1e; }
+.timer-info-row { display: flex; align-items: center; justify-content: space-between; gap: 13px; min-height: 51px; color: #fff; font-size: 17px; line-height: 24px; font-weight: 500; letter-spacing: normal; }
+.timer-info-row+.timer-info-row { border-top: .6px solid #3a3a3c; }
+.timer-info-row>span:first-child { flex-shrink: 0; }
+.timer-info-row input { flex: 1; width: 50%; min-width: 0; padding: 8px 0; border: 0; background: transparent; text-align: right; color: #b2b2b7; font-size: 16px; outline: 0; }
+.timer-info-row input::placeholder { color: #636366; opacity: 1; }
+.timer-end-action { display: flex; align-items: center; gap: 6px; color: #8e8e93; white-space: nowrap; }
+.timer-end-action .icon { width: 17px; height: 17px; color: #636366; }
+.clock-alarm-form { background: #000; }
+.clock-alarm-form .alarm-form .primary-button { border-radius: 25px; background: #ff9f0a; color: #000; }
+@media (max-width:350px) {
+  .clock-native-app .alarm-time { font-size: 52px; }
+  .world-clock-row time { font-size: 54px; line-height: 66px; }
+  .clock-sleep-row>span { font-size: 36px; }
+  .clock-tabs { left: 16px; right: 16px; }
+  .clock-tabs button { font-size: 9px; }
+}
+
+@media (max-height:650px) {
+  .timer-picker { top: 27.5dvh; }
+}

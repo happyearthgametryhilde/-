@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <g id="bird" stroke="#706255" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M37 77 24 91 42 87M75 78 94 91 80 70" fill="#b19278"/>
+      <path d="m48 91-3 9m19-9 3 9m-25 0h7m15 0h7" fill="none"/>
+      <path d="M25 62c0-20 11-35 29-37l4-4 3 4 5-3 2 4c18 3 28 17 28 36 0 23-15 34-35 34S25 85 25 62Z" fill="#fffef9"/>
+      <path d="M29 59c0 9 4 16 11 19m51-19c0 9-4 16-11 19" fill="none" stroke="#d5c6b5" stroke-width="2.5"/>
+      <ellipse cx="42" cy="63" rx="5.5" ry="3" fill="#f3cbc7" stroke="none"/>
+      <ellipse cx="79" cy="63" rx="5.5" ry="3" fill="#f3cbc7" stroke="none"/>
+      <circle cx="46" cy="54" r="2.1" fill="#3e3731" stroke="none"/>
+      <circle cx="74" cy="54" r="2.1" fill="#3e3731" stroke="none"/>
+      <path d="m57.5 60 3 3 3-3q-3-2-6 0Z" fill="#6a5848" stroke="#6a5848" stroke-width="1"/>
+    </g>
+    <g id="bird-raised" stroke="#706255" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M37 77 24 91 42 87M75 78 94 91 80 70" fill="#b19278"/>
+      <path d="m48 91-3 9m19-9 3 9m-25 0h7m15 0h7" fill="none"/>
+      <path d="M25 63c-7-4-15-14-15-22 0-4 2-5 5-2l14 12c3-14 13-24 25-26l4-4 3 4 5-3 2 4c12 2 20 11 24 25l14-12c3-3 5-2 5 2 0 8-8 18-15 22 0 22-15 33-35 33S25 85 25 63Z" fill="#fffef9"/>
+      <path d="M25 63q5 6 11 7m60-7q-5 6-11 7" fill="none" stroke="#d5c6b5" stroke-width="2.1"/>
+      <ellipse cx="42" cy="63" rx="5.5" ry="3" fill="#f3cbc7" stroke="none"/>
+      <ellipse cx="79" cy="63" rx="5.5" ry="3" fill="#f3cbc7" stroke="none"/>
+      <circle cx="46" cy="54" r="2.1" fill="#3e3731" stroke="none"/>
+      <circle cx="74" cy="54" r="2.1" fill="#3e3731" stroke="none"/>
+      <path d="m57.5 60 3 3 3-3q-3-2-6 0Z" fill="#6a5848" stroke="#6a5848" stroke-width="1"/>
+    </g>
+    <g id="sheep" stroke="#6d625a" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m43 86-3 14m35-14 4 14m-43 0h8m31 0h8" fill="none" stroke-width="3"/>
+      <path d="M32 59c-12-9-14 8-5 12-11 9-1 20 10 17 0 12 16 15 22 6 9 11 23 5 24-5 14 4 23-10 13-19 7-12-7-20-16-12-8-10-18-8-23 0-8-8-19-8-25 1Z" fill="#fffdf8"/>
+      <path d="M43 37c-19-8-21 3-5 14m39-14c19-8 21 3 5 14" fill="#e9b5ae"/>
+      <ellipse cx="60" cy="49" rx="25" ry="23" fill="#e5ceaf"/>
+      <path d="M38 31c-8-7 0-17 8-12 0-10 13-13 17-4 9-7 19 0 16 8 10 1 11 13 2 17-2-7-9-4-13-7-7 6-11 3-16 0-5 5-10 3-14-2Z" fill="#fffdf8"/>
+      <path d="M49 48v2m22-2v2" fill="none" stroke="#453b34" stroke-width="3.6"/>
+      <path d="m58 56 2 2 3-2m-3 2v4m-4 0q4 4 8 0" fill="none"/>
+      <path d="M42 56h6m25 0h6" stroke="#e8aaa5" stroke-width="4"/>
+    </g>
+    <g id="flower" stroke="#e9a2a9" stroke-width="1.2">
+      <path d="M0-3c-6-8-11 1-5 5-4 7 5 12 8 5 7 4 11-6 4-8 2-7-7-9-7-2Z" fill="#f6c5cc"/>
+      <circle r="2.4" fill="#f3d47a" stroke="none"/>
+    </g>
+  </defs>
+  <symbol id="bird-flap" viewBox="0 0 120 120">
+    <use href="#bird-raised"/>
+    <path d="m13 38-3-6m13 7-1-8m77 7 3-6m-13 7 1-8" transform="translate(0 -10)" fill="none" stroke="#c3a886" stroke-width="2" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="bird-hop" viewBox="0 0 120 120">
+    <ellipse cx="60" cy="109" rx="21" ry="3" fill="#66554b" opacity=".1"/><use href="#bird" transform="translate(0 -7)"/>
+    <path d="m23 85-4 7m79-7 4 7" fill="none" stroke="#c3a886" stroke-width="2.4" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="bird-dance" viewBox="0 0 120 120">
+    <use href="#bird" transform="rotate(-8 60 72)"/><path d="m94 31 10-3v17m-10-14v19" fill="none" stroke="#dba3a8" stroke-width="2.5"/><ellipse cx="91" cy="51" rx="5" ry="3" fill="#dba3a8"/><ellipse cx="101" cy="46" rx="5" ry="3" fill="#dba3a8"/>
+  </symbol>
+  <symbol id="bird-peek" viewBox="0 0 120 120">
+    <use href="#bird" transform="rotate(12 60 72)"/><path d="M18 29q0-8 7-8t6 8q-1 4-6 6v4m0 7v1" fill="none" stroke="#a9b9b0" stroke-width="3" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="bird-wait" viewBox="0 0 120 120">
+    <ellipse cx="60" cy="104" rx="25" ry="3" fill="#66554b" opacity=".1"/>
+    <use href="#bird"/>
+    <path d="M34 72q9 12 21 8m31-8q-9 12-21 8" fill="none" stroke="#d5c6b5" stroke-width="2.3" stroke-linecap="round"/>
+    <g fill="#b7a28d"><circle cx="49" cy="10" r="2"/><circle cx="60" cy="10" r="2"/><circle cx="71" cy="10" r="2"/></g>
+  </symbol>
+  <symbol id="bird-surprise" viewBox="0 0 120 120">
+    <use href="#bird-raised"/>
+    <circle cx="46" cy="54" r="4.5" fill="#fffef9" stroke="#706255" stroke-width="1.7"/>
+    <circle cx="74" cy="54" r="4.5" fill="#fffef9" stroke="#706255" stroke-width="1.7"/>
+    <circle cx="46" cy="54" r="1.6" fill="#453b34"/><circle cx="74" cy="54" r="1.6" fill="#453b34"/>
+    <path d="M56 58h10v9H56z" fill="#fffef9"/>
+    <ellipse cx="61" cy="63" rx="3" ry="4" fill="#a3795d"/>
+    <path d="m17 27-2-10m9 12 3-9m71 5 4-9m-9 9-1-10" stroke="#c3a886" stroke-width="2.5" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="bird-flowers" viewBox="0 0 120 120">
+    <use href="#bird" transform="translate(-8 18) scale(.62)"/><use href="#bird" transform="translate(54 25) scale(.62)"/><use href="#bird" transform="translate(24 37) scale(.62)"/>
+    <use href="#flower" x="20" y="20"/><use href="#flower" x="67" y="17"/><use href="#flower" x="101" y="38"/><use href="#flower" x="45" y="41"/>
+  </symbol>
+  <symbol id="sheep-dance" viewBox="0 0 120 120">
+    <use href="#sheep" transform="rotate(-9 60 72)"/><path d="m98 17 8-2v17m-8-15v21" fill="none" stroke="#d5a5b3" stroke-width="2.6"/><ellipse cx="95" cy="39" rx="5" ry="3" fill="#d5a5b3"/><ellipse cx="103" cy="33" rx="5" ry="3" fill="#d5a5b3"/>
+  </symbol>
+  <symbol id="sheep-grazing" viewBox="0 0 120 120">
+    <use href="#sheep" transform="translate(3 8) rotate(16 60 72)"/><path d="m18 104 3-13 5 13 5-10 1 10m2 0 5-12 2 12" fill="none" stroke="#85aa7e" stroke-width="2" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="sheep-hop" viewBox="0 0 120 120">
+    <ellipse cx="60" cy="111" rx="24" ry="3" fill="#66554b" opacity=".12"/><use href="#sheep" transform="translate(0 -8)"/>
+  </symbol>
+  <symbol id="sheep-only" viewBox="0 0 120 120">
+    <use href="#sheep"/>
+  </symbol>
+  <symbol id="sheep-angry-hop" viewBox="0 0 120 120">
+    <use href="#sheep"/>
+    <ellipse cx="60" cy="60" rx="8" ry="8" fill="#e5ceaf"/>
+    <path d="m44 43 9 4m14 0 9-4" fill="none" stroke="#6d625a" stroke-width="2.3" stroke-linecap="round"/>
+    <path d="m58 56 2 2 3-2m-3 2v3m-4 4q4-5 8 0" fill="none" stroke="#6d625a" stroke-width="1.7" stroke-linecap="round"/>
+    <ellipse cx="45" cy="56" rx="4.6" ry="3.5" fill="#edb1aa"/>
+    <ellipse cx="76" cy="56" rx="4.6" ry="3.5" fill="#edb1aa"/>
+    <g class="sheep-anger-mark" fill="none" stroke="#df9d97" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M93 12v4a2 2 0 0 1-2 2h-4"/>
+      <path d="M93 12v4a2 2 0 0 1-2 2h-4" transform="rotate(90 96 21)"/>
+      <path d="M93 12v4a2 2 0 0 1-2 2h-4" transform="rotate(180 96 21)"/>
+      <path d="M93 12v4a2 2 0 0 1-2 2h-4" transform="rotate(270 96 21)"/>
+    </g>
+    <path d="m16 75-5 3m8 6-3 4m88-13 5 3m-8 6 3 4" fill="none" stroke="#d5c3b3" stroke-width="2" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="mouse-nod" viewBox="0 0 120 120">
+    <g stroke="#716960" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M83 96q21 4 17-9" fill="none" stroke-width="2.5"/>
+      <ellipse cx="60" cy="84" rx="25" ry="22" fill="#c3bbb0"/>
+      <ellipse cx="60" cy="88" rx="14" ry="15" fill="#eee7dd" stroke="none"/>
+      <path d="m42 103-4 4m39-4 4 4"/>
+      <circle cx="33" cy="32" r="17" fill="#c3bbb0"/><circle cx="88" cy="32" r="17" fill="#c3bbb0"/>
+      <circle cx="33" cy="32" r="10" fill="#e9cdc8" stroke="none"/><circle cx="88" cy="32" r="10" fill="#e9cdc8" stroke="none"/>
+      <path d="M29 53c0-21 15-31 31-31s31 10 31 31c0 19-12 27-31 27S29 72 29 53Z" fill="#c3bbb0"/>
+      <path d="m44 50 5 3 5-3m12 0 5 3 5-3" fill="none" stroke="#554c44" stroke-width="2.6"/>
+      <ellipse cx="60" cy="63" rx="12" ry="9" fill="#eee7dd" stroke="none"/>
+      <ellipse cx="60" cy="59" rx="3.3" ry="2.6" fill="#695950" stroke="none"/>
+      <path d="M60 62v4m-4 0q4 4 8 0m-27-9-9-2m9 7-9 2m55-7 9-2m-9 7 9 2" fill="none"/>
+    </g>
+    <path d="m104 54 4 5 4-5m-8 10 4 5 4-5" fill="none" stroke="#b4c5b1" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+    <path class="mouse-nod-motion-lines" d="M104 37q6 5 1 11m6-15q10 9 2 20M14 48q-5 6 1 12m-5-17q-8 10 0 20" fill="none" stroke="#a5b89f" stroke-width="2.2" stroke-linecap="round"/>
+  </symbol>
+</svg>

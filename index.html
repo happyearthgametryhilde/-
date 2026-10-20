@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#dedee3">
+  <meta name="description" content="힐데베르트 탈레브의 개인 휴대폰. 화면을 열고, 남겨진 작은 일상들을 둘러보세요.">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <title>힐데베르트의 iPhone</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css?v=20261019v">
+  <link rel="stylesheet" href="ios26.css?v=20261018d">
+  <link rel="stylesheet" href="youtube.css?v=20261019g">
+  <link rel="stylesheet" href="native-apps.css?v=20261018d">
+  <link rel="stylesheet" href="notes.css?v=20261018bf">
+  <link rel="stylesheet" href="clock.css?v=20261018d">
+  <link rel="stylesheet" href="instagram.css?v=20261019a">
+  <link rel="stylesheet" href="kakao.css?v=20261020a">
+  <link rel="stylesheet" href="messages.css?v=20261018d">
+  <link rel="stylesheet" href="phone.css?v=20261018ag">
+  <link rel="stylesheet" href="safari.css?v=20261019ad">
+  <link rel="stylesheet" href="bbinside.css?v=20261019al">
+  <link rel="stylesheet" href="crgall.css?v=20261019t">
+  <link rel="stylesheet" href="takuu.css?v=20261019ac">
+  <link rel="stylesheet" href="lockscreen.css?v=20261019w">
+  <link rel="stylesheet" href="viewer.css?v=20261020a">
+  <script src="content.js?v=20261020a" defer></script>
+  <script src="kakao-dialogues.js?v=20261020g" defer></script>
+  <script src="message-dialogues.js?v=20261019ag" defer></script>
+  <script src="phone-history.js?v=20261020a" defer></script>
+  <script src="google-yeyhyeon.js?v=20261020b" defer></script>
+  <script src="google-hildebert.js?v=20261020b" defer></script>
+  <script src="app.js?v=20261020e" defer></script>
+</head>
+<body>
+  <main class="stage">
+    <div class="device-wrap" id="deviceWrap">
+      <div class="side-key side-key-mute"></div><div class="side-key side-key-volume"></div><div class="side-key side-key-power"></div>
+      <section class="phone-case" aria-label="힐데베르트의 iPhone">
+        <div class="device" id="device" data-mode="locked">
+          <div class="wallpaper" id="wallpaper"></div>
+          <header class="status-bar" id="statusBar" aria-hidden="true">
+            <span class="status-time" id="statusTime">9:41</span><span class="lock-carrier">SKT</span>
+            <div class="island"><span class="lens"></span></div>
+            <span class="status-icons">
+              <svg class="signal" viewBox="0 0 20 14"><path d="M1 9h3v5H1zm5-3h3v8H6zm5-3h3v11h-3zm5-3h3v14h-3z" fill="currentColor"/></svg>
+              <svg class="wifi" viewBox="0 0 20 15"><path d="M1 4a14 14 0 0 1 18 0M4 8a9 9 0 0 1 12 0M8 12a3 3 0 0 1 4 0" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+              <span class="battery"><span></span></span>
+            </span>
+          </header>
+          <button class="control-center-trigger" id="controlCenterButton" data-action="control-center" aria-label="제어 센터 열기" aria-controls="controlCenter" aria-expanded="false"></button>
+          <section class="lock-screen screen" id="lockScreen" aria-label="잠금 화면">
+            <div class="lock-top">
+              <svg class="lock-mark" aria-hidden="true"><use href="assets/icons.svg?v=20261018d#lock"/></svg>
+              <div class="lock-date" id="lockDate"></div>
+              <time class="lock-time lock-time-accessible" id="lockTime" aria-live="off">9:41</time>
+              <svg class="lock-clock" id="lockClockFace" viewBox="0 0 352 116" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false">
+                <defs><linearGradient id="lockClockGlass" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#fff" stop-opacity=".92"/><stop offset=".5" stop-color="#fff" stop-opacity=".89"/><stop offset="1" stop-color="#fff" stop-opacity=".91"/></linearGradient></defs>
+                <g id="lockClockDigits"></g>
+              </svg>
+            </div>
+            <div class="lock-notifications" id="lockNotifications" hidden aria-hidden="true"></div>
+            <div class="lock-shortcuts" aria-label="잠금 화면 바로가기"><button disabled aria-disabled="true" aria-label="손전등 사용 안 함"><svg class="icon"><use href="assets/icons.svg?v=20261018d#ios-flashlight"/></svg></button><button disabled aria-disabled="true" aria-label="카메라 사용 안 함"><svg class="icon"><use href="assets/icons.svg?v=20261018d#ios-camera"/></svg></button></div>
+            <button class="unlock-button" id="unlockButton" type="button" aria-label="위로 쓸어올리거나 눌러서 열기">
+              <svg class="icon"><use href="assets/icons.svg?v=20261018d#chevron-up"/></svg>
+              <span>위로 쓸어올려 열기</span>
+            </button>
+          </section>
+          <section class="home-screen screen" id="homeScreen" aria-label="홈 화면" hidden>
+            <div class="app-grid" id="appGrid"></div>
+            <div class="home-page-dots" aria-hidden="true"><span></span></div>
+            <nav class="dock" id="dock" aria-label="자주 쓰는 앱"></nav>
+          </section>
+          <section class="app-layer" id="appLayer" aria-label="열린 앱" hidden></section>
+          <section class="control-center" id="controlCenter" role="dialog" aria-label="제어 센터" aria-modal="true" hidden></section>
+          <section class="live-notification" id="notificationBanner" role="status" aria-live="polite" aria-atomic="true" hidden></section>
+          <div class="screen-dimmer" id="screenDimmer" aria-hidden="true"></div>
+          <button class="home-indicator" id="homeButton" aria-label="홈 화면으로 이동" type="button"><span></span></button>
+          <div class="toast" id="toast" role="status"></div>
+        </div>
+      </section>
+      <p class="desktop-caption"><span>HILDEBERT’S iPHONE</span><span>작은 일상들을 열어보세요.</span></p>
+    </div>
+  </main>
+  <noscript>휴대폰 화면을 사용하려면 브라우저에서 JavaScript를 켜 주세요.</noscript>
+</body>
+</html>
