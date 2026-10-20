@@ -407,6 +407,7 @@
         $('#chatList').innerHTML=chatRows(event.app,query);
       }
     }
+    if(event.app==='kakao'&&event.id==='yoon-privacy-reply-3')window.HILDE_YOON_CALL?.ready(kakaoAvatar(chat));
     renderHome();
     if(viewing)return;
     liveNotifications.pending.push(item);pumpNotificationQueue();
@@ -541,6 +542,7 @@
     syncScreenAccessibility();
     renderHome();
     $('#unlockButton').blur();
+    window.HILDE_YOON_CALL?.resume();
     if(wasLocked)startKakaoScene();
     startNotificationSchedule();pumpNotificationQueue();startIncomingSchedule();
     if(wasLocked&&!reducedMotion())$('#homeScreen').animate?.([{opacity:0,transform:'scale(1.08)'},{opacity:1,transform:'scale(1)'}],{duration:420,easing:'cubic-bezier(.2,.8,.2,1)'});
@@ -1001,7 +1003,7 @@
     if(!c)return state.route?.app==='phone'?renderPhone():renderMessages('kakao');
     const messageApp=c.messageApp||(state.messages.some(chat=>chat.id===id)?'messages':'kakao');
     if(state.route?.app!=='phone')return '<div class="app-view grouped">'+nav('카카오톡')+'<div class="app-scroll"><section class="contact-profile">'+avatar(c)+'<h2>'+esc(c.name)+'</h2><div class="contact-actions"><button class="contact-action" data-action="thread" data-app="'+messageApp+'" data-id="'+esc(id)+'">'+icon('messages')+'메시지</button><button class="contact-action" disabled aria-disabled="true">'+icon('phone')+'통화</button></div></section></div></div>';
-    const message='data-action="thread" data-app="'+messageApp+'" data-id="'+esc(id)+'"',call='disabled aria-disabled="true"';
+    const message='data-action="thread" data-app="'+messageApp+'" data-id="'+esc(id)+'"',call=window.HILDE_YOON_CALL?.canReturn(c.id)?'data-action="yoon-callback"':'disabled aria-disabled="true"';
     return '<div class="app-view phone-app phone-native-app phone-contact-app"><header class="phone-profile-header"><button class="phone-profile-back" data-action="back" aria-label="연락처로 돌아가기">'+icon('phone-back')+'</button><strong>'+esc(c.name)+'</strong><button disabled aria-disabled="true">편집</button></header><div class="app-scroll phone-profile-scroll"><section class="contact-profile'+(Array.from(c.name).length>8?' is-long-name':'')+'">'+avatar(c)+'<h2>'+esc(c.name)+'</h2><div class="contact-actions"><button class="contact-action" '+message+' aria-label="메시지">'+icon('messages')+'</button><button class="contact-action" '+call+' aria-label="통화">'+icon('phone')+'</button><button class="contact-action" disabled aria-disabled="true" aria-label="영상 통화">'+icon('profile-video')+'</button><button class="contact-action" disabled aria-disabled="true" aria-label="이메일">'+icon('profile-mail')+'</button></div></section><div class="phone-profile-card phone-contact-poster">'+avatar(c)+'<strong>연락처 사진 및 포스터</strong>'+icon('chevron-right')+'</div><div class="phone-profile-card"><button class="phone-contact-number" '+call+'><span><strong>휴대전화</strong><span>연락처 저장됨</span></span>'+icon('phone')+'</button><div class="phone-contact-memo">메모</div></div><div class="phone-profile-card phone-profile-options"><button '+message+'>메시지 보내기</button><button disabled aria-disabled="true">연락처 공유</button><button disabled aria-disabled="true">즐겨찾기에 추가</button></div><div class="phone-profile-card phone-profile-options"><button disabled aria-disabled="true">긴급 연락처에 추가</button></div><div class="phone-profile-card phone-profile-options"><button disabled aria-disabled="true">연락처 차단</button></div></div>'+phoneTabs()+'</div>';
   }
   function phoneTabs() {
@@ -1016,7 +1018,7 @@
     });
     return calls.map(call=>{
       const c=phoneCaller(call),parts=call.date?.split('-'),stamp=parts?.length===3?Number(parts[0])+'. '+Number(parts[1])+'. '+Number(parts[2])+'.':call.time;
-      return '<div class="phone-call-row'+(call.missed?' is-missed':'')+(c.unsavedNumber?' is-unsaved':'')+(state.phoneEditing?' is-editing':'')+'" data-contact="'+esc(c.id)+'">'+(state.phoneEditing?'<button class="phone-delete-call" data-action="phone-delete-call" data-id="'+esc(call.id)+'" aria-label="'+esc(c.name)+' 통화 기록 삭제">'+icon('minus')+'</button>':'')+'<span class="phone-row-avatar" aria-hidden="true" data-id="'+esc(c.id)+'">'+(c.unsavedNumber?messageAvatar(c):contactAvatar(c))+'</span><div class="phone-call-main"><strong title="'+esc(c.name)+'">'+esc(c.name)+'</strong><span>'+icon(call.direction==='outgoing'?'call-outgoing':'call-incoming')+esc(call.missed?'부재중 전화':c.subtitle||'휴대전화')+'</span></div><time>'+esc(stamp)+'</time><button class="phone-call-button" disabled aria-disabled="true" aria-label="'+esc(c.name)+' 통화">'+icon('phone')+'</button></div>';
+      return '<div class="phone-call-row'+(call.missed?' is-missed':'')+(c.unsavedNumber?' is-unsaved':'')+(state.phoneEditing?' is-editing':'')+'" data-contact="'+esc(c.id)+'">'+(state.phoneEditing?'<button class="phone-delete-call" data-action="phone-delete-call" data-id="'+esc(call.id)+'" aria-label="'+esc(c.name)+' 통화 기록 삭제">'+icon('minus')+'</button>':'')+'<span class="phone-row-avatar" aria-hidden="true" data-id="'+esc(c.id)+'">'+(c.unsavedNumber?messageAvatar(c):contactAvatar(c))+'</span><div class="phone-call-main"><strong title="'+esc(c.name)+'">'+esc(c.name)+'</strong><span>'+icon(call.direction==='outgoing'?'call-outgoing':'call-incoming')+esc(call.missed?'부재중 전화':c.subtitle||'휴대전화')+'</span></div><time>'+esc(stamp)+'</time><button class="phone-call-button" '+(window.HILDE_YOON_CALL?.canReturn(c.id)?'data-action="yoon-callback"':'disabled aria-disabled="true"')+' aria-label="'+esc(c.name)+' 통화">'+icon('phone')+'</button></div>';
     }).join('')||'<div class="phone-empty"><strong>'+(query?'검색 결과 없음':state.phoneFilter==='missed'?'부재중 전화 없음':'최근 통화 없음')+'</strong><p>'+(query?'다른 이름으로 검색해 보세요.':'통화 기록이 여기에 표시됩니다.')+'</p></div>';
   }
   function phoneCaller(call) {
@@ -1732,6 +1734,7 @@
         $('#chatBubbles').scrollTop=$('#chatBubbles').scrollHeight;
         renderHome();
         if(sceneReply)replyToKakaoScene();
+        else if(route.app==='kakao'&&route.id===scene?.chatId)window.HILDE_YOON_CALL?.sent();
       });
       $('#chatBubbles').scrollTop=$('#chatBubbles').scrollHeight;
     }
@@ -1929,6 +1932,7 @@
       case 'phone-info':navigate({app:'phone',page:'profile',id});break;
       case 'dial-key':state.dial=(state.dial+el.dataset.key).slice(0,18);updateDialNumber();break;
       case 'dial-delete':state.dial=state.dial.slice(0,-1);updateDialNumber();break;
+      case 'yoon-callback':window.HILDE_YOON_CALL?.callback();break;
       case 'dial-call':case 'call':case 'call-toggle':break;
       case 'ig-tab':if(!['home','profile'].includes(el.dataset.tab))break;state.igTab=el.dataset.tab;navigate({app:'instagram'});break;
       case 'ig-post':navigate({app:'instagram',page:'post',id,...(el.dataset.profile?{profileUsername:el.dataset.profile}:{}),returnRoute:igReturnRoute()});break;
