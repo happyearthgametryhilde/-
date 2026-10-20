@@ -528,6 +528,8 @@
   }
   function $$(selector,root=document) { return Array.from(root.querySelectorAll(selector)); }
   function fitDevice() {
+    // Keep the framed page steady when the native keyboard reduces the viewport.
+    if(document.activeElement?.id==='safariQuery')return;
     const scale=Math.max(.1,Math.min(1,(window.innerHeight-32)/864,(window.innerWidth-32)/410));
     document.documentElement.style.setProperty('--device-scale',scale);
   }
@@ -1308,7 +1310,7 @@
     if(state.route?.page==='community')return renderGoogleCommunity();
     const result=state.route?.page==='search'?state.route.query:'';
     const topbar='<header class="google-topbar">'+(result?googleWordmark('google-result-logo'):'<nav class="google-home-tabs"><strong>전체</strong><span>이미지</span></nav>')+'<span class="google-top-tools"><span class="google-notification" aria-hidden="true">'+icon('bell')+'<i></i></span>'+(!result?'<span class="google-apps-grid" aria-hidden="true">'+icon('google-apps')+'</span>':'')+googleProfile()+'</span></header>';
-    const form='<form id="safariForm" class="google-search-form"><div class="google-search-box" role="group" aria-label="Google 검색"><button type="button" class="google-field-leading" data-action="safari-search" aria-label="검색어 입력"><span class="google-field-search">'+icon('search')+'</span><span class="google-field-plus">'+icon('phone-plus')+'</span></button><input id="safariQuery" type="search" inputmode="none" enterkeyhint="search" data-search="safari" placeholder="Google에 물어보세요" aria-label="Google 검색어" maxlength="160" autocomplete="off" autocapitalize="off" spellcheck="false" value="'+esc(result)+'" aria-controls="googleRecentSearches" aria-expanded="false" required><span class="google-field-tools"><button class="google-ai-search" type="button" disabled aria-disabled="true" aria-label="AI 검색">'+icon('google-ai')+'</button><button type="button" disabled aria-disabled="true" aria-label="음성 검색">'+icon('mic')+'</button><button type="button" disabled aria-disabled="true" aria-label="Google 렌즈">'+icon('google-lens')+'</button></span></div></form>';
+    const form='<form id="safariForm" class="google-search-form"><div class="google-search-box" role="group" aria-label="Google 검색"><button type="button" class="google-field-leading" data-action="safari-search" aria-label="검색어 입력"><span class="google-field-search">'+icon('search')+'</span><span class="google-field-plus">'+icon('phone-plus')+'</span></button><input id="safariQuery" type="search" inputmode="search" enterkeyhint="search" data-search="safari" placeholder="Google에 물어보세요" aria-label="Google 검색어" maxlength="160" autocomplete="off" autocapitalize="off" spellcheck="false" value="'+esc(result)+'" aria-controls="googleRecentSearches" aria-expanded="false" required><span class="google-field-tools"><button class="google-ai-search" type="button" disabled aria-disabled="true" aria-label="AI 검색">'+icon('google-ai')+'</button><button type="button" disabled aria-disabled="true" aria-label="음성 검색">'+icon('mic')+'</button><button type="button" disabled aria-disabled="true" aria-label="Google 렌즈">'+icon('google-lens')+'</button></span></div></form>';
     const footer='<footer class="google-home-footer"><div>대한민국</div><p><span>어두운 테마: 사용 중지됨</span><span>설정</span><span>개인정보처리방침</span><span>약관</span></p><p><span>광고</span><span>비즈니스</span><span>Google 정보</span></p></footer>';
     return '<div class="app-view safari-app google-app google-native-app'+(result?' is-results':'')+(result===GOOGLE_PERSON_QUERY?' is-person-results':'')+'"><div class="app-scroll google-page">'+topbar+(!result?'<h1 class="google-home-brand" tabindex="-1">'+googleWordmark()+'</h1>':'')+form+(result?'<div class="google-results-content">'+googleResults(result)+'</div>':footer)+'</div><section class="google-history-section" id="googleRecentSearches" aria-label="최근 검색 기록" hidden><div id="googleHistory">'+renderGoogleHistory()+'</div></section>'+safariChrome(result)+'<div class="safari-keyboard-url" hidden>google.co.kr</div><div class="safari-keyboard-accessory" id="safariKeyboardAccessory" hidden><span aria-hidden="true">'+icon('chevron-up')+icon('chevron-down')+'</span><button data-action="safari-keyboard-done" aria-label="키보드 닫기">'+icon('check')+'</button></div><div class="safari-keyboard" id="safariKeyboard" role="group" aria-label="화면 키보드" hidden></div></div>';
   }
@@ -1324,12 +1326,12 @@
   function setSafariSearch(open) {
     const input=$('#safariQuery');if(!input)return;
     if(open&&state.safariSearchOpen){
-      if(!state.safariKeyboardOpen){state.safariKeyboardOpen=true;syncSafariSearchUI();}
+      state.safariKeyboardOpen=false;syncSafariSearchUI();
       return;
     }
     if(!open&&!state.safariSearchOpen&&!state.safariKeyboardOpen)return;
     if(open&&!state.safariSearchOpen)state.safariKeyUndo=[];
-    state.safariSearchOpen=open;state.safariKeyboardOpen=open;
+    state.safariSearchOpen=open;state.safariKeyboardOpen=false;
     if(open)$('#googleHistory').innerHTML=renderGoogleHistory(input.value);
     else{input.value=state.route?.page==='search'?state.route.query:'';if(document.activeElement===input)input.blur();state.safariKeyUndo=[];}
     syncSafariSearchUI();
@@ -1795,7 +1797,6 @@
     safariPointerFocus=false;
     if(state.route?.app==='safari'){
       if(event.target.closest('#safariForm')){
-        if(!state.safariSearchOpen||!state.safariKeyboardOpen)event.preventDefault();
         activateSafariSearch();return;
       }
       else if(!event.target.closest('#googleRecentSearches,#safariKeyboard,#safariKeyboardAccessory,[data-action="safari-search"],[data-action="safari-back"]'))setSafariSearch(false);

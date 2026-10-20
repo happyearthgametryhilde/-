@@ -41,3 +41,12 @@ html, body {
 }
 .side-key, .desktop-caption { display: none; }
 .home-indicator { bottom: 0; }
+
+/* Leave room below the status glyphs without changing the chosen icon set. */
+.status-bar { height: 64px; overflow: visible; }
+.status-time { top: 24px; line-height: 20px; }
+.status-icons { top: 24px; height: 20px; overflow: visible; }
+.status-icons > svg { display: block; flex-shrink: 0; overflow: visible; }
+@media (hover: none) and (pointer: coarse) {
+  .stage:has(#safariQuery:focus) { align-items: flex-start; }
+}
