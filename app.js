@@ -407,10 +407,22 @@
         $('#chatList').innerHTML=chatRows(event.app,query);
       }
     }
-    if(event.app==='kakao'&&event.id==='yoon-privacy-reply-3')window.HILDE_YOON_CALL?.ready(contactAvatar(contact(chat.id)||chat),text=>deliverLocalNotification({app:'kakao',chatId:chat.id,id:'yoon-call-followup-'+Date.now()+'-'+text,text,scripted:true}));
+    if(event.app==='kakao'&&event.id==='yoon-privacy-reply-3')window.HILDE_YOON_CALL?.ready(contactAvatar(contact(chat.id)||chat),text=>deliverLocalNotification({app:'kakao',chatId:chat.id,id:'yoon-call-followup-'+Date.now()+'-'+text,text,scripted:true}),recordYoonIncomingCall);
     renderHome();
     if(viewing)return;
     liveNotifications.pending.push(item);pumpNotificationQueue();
+  }
+  function recordYoonIncomingCall(status) {
+    const id='visit-yoon-scripted-incoming';
+    let call=state.phoneCalls.find(item=>item.id===id);
+    if(!call){
+      const d=dateParts();
+      call={id,contact:'yoon',date:d.year+'-'+d.month+'-'+d.day,time:d.hour+':'+d.minute,direction:'incoming',missed:false,unread:false,visitIncoming:true};
+      state.phoneCalls.unshift(call);
+    }
+    call.missed=status==='missed';
+    call.unread=call.missed&&!(state.route?.app==='phone'&&state.phoneTab==='recent');
+    save('phoneCalls');refreshPhoneRows();renderHome();
   }
   function startKakaoScene() {
     const scene=C.kakaoScene;

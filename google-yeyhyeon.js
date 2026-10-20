@@ -26,16 +26,16 @@
   "posts": [
     {
       "id": "leadership",
-      "title": "블배가 사기업도 아닌데 수장이 안 바뀐다는 게 말이 됨?",
+      "title": "블배가 사기업도 아닌데 수장이 안바뀐다는게 말이됨?",
       "body": "ㅇㅇ",
       "comments": [
         {
           "id": "leadership-c001",
-          "text": "고이다 못해 썩은 수준"
+          "text": "고이다못해 썩은수준"
         },
         {
           "id": "leadership-c002",
-          "text": "그니까 저 인간은 언제까지 저 자리에 있는 거냐? 임기라는 게 없어?"
+          "text": "그니까 저인간은 언제까지 저자리에 있는거냐? 임기라는게 없어?"
         },
         {
           "id": "leadership-c003",
@@ -43,7 +43,7 @@
         },
         {
           "id": "leadership-c004",
-          "text": "죽을 때까지가 그의 임기지",
+          "text": "죽을때까지가 그의 임기지",
           "parent": "leadership-c002"
         },
         {
@@ -52,7 +52,7 @@
         },
         {
           "id": "leadership-c006",
-          "text": "잘하니까 그 자리에 계속 앉아있는 거 아님? 예전에 시범 삼아 바꿨다가 피 본 거 모르냐?"
+          "text": "잘하니까 그자리에 계속 앉아있는거 아님? 예전에 시범 삼아 바꿨다가 피본거 모르냐?"
         },
         {
           "id": "leadership-c007",
@@ -61,7 +61,7 @@
         },
         {
           "id": "leadership-c008",
-          "text": "확실히 정해진 임기가 없다는 건 문제가 있음"
+          "text": "확실히 정해진 임기가 없다는건 문제가있음"
         },
         {
           "id": "leadership-c009",
@@ -69,23 +69,23 @@
         },
         {
           "id": "leadership-c010",
-          "text": "예현 후임 있지 않았나 지금의 잘생긴 브레이즈 머리 말고"
+          "text": "예현 후임 있지 않았나 지금의 잘생긴 브레이즈머리 말고"
         },
         {
           "id": "leadership-c011",
-          "text": "사울? 몇 년 전에 죽었잖아",
+          "text": "사울? 몇년전에 죽었잖아",
           "parent": "leadership-c010"
         }
       ]
     },
     {
       "id": "headquarters",
-      "title": "이번에 배저 본부에 크리처 출현한 거 봤냐?",
+      "title": "이번에 배저 본부에 크리처 출현한거 봤냐?",
       "body": "존나 무섭네 ㄷㄷ",
       "comments": [
         {
           "id": "headquarters-c001",
-          "text": "그거 본부 밑 실험실에서 탈출한 거라는 썰이 돌던데"
+          "text": "그거 본부 밑 실험실에서 탈출한거라는 썰이돌던데"
         },
         {
           "id": "headquarters-c002",
@@ -93,22 +93,22 @@
         },
         {
           "id": "headquarters-c003",
-          "text": "1구역 첫 침입인데 그중에서도 하필 본부 습격이라는 게 이상함",
+          "text": "1구역 첫 침입인데 그중에서도 하필 본부습격이라는게 이상함",
           "parent": "headquarters-c002"
         },
         {
           "id": "headquarters-c004",
-          "text": "대가리가 있는 크리처였나보지",
+          "text": "대가리가있는 크리처였나보지",
           "parent": "headquarters-c003"
         },
         {
           "id": "headquarters-c005",
-          "text": "그런 것처럼은 안 보이던데",
+          "text": "그런것처럼은 안보이던데",
           "parent": "headquarters-c004"
         },
         {
           "id": "headquarters-c006",
-          "text": "총사령관은 왜 공식발표 안 하죠?"
+          "text": "총사령관은 왜 공식발표 안하죠?"
         },
         {
           "id": "headquarters-c007",
@@ -140,7 +140,7 @@
         },
         {
           "id": "headquarters-c013",
-          "text": "큰 부상 아니었다잖아",
+          "text": "큰부상 아니었다잖아",
           "parent": "headquarters-c012"
         },
         {
@@ -149,11 +149,11 @@
         },
         {
           "id": "headquarters-c015",
-          "text": "예현 그 인간 언제까지 난세의 영웅 취급해 줄 건데"
+          "text": "예현 그 인간 언제까지 난세의영웅 취급해줄건데"
         },
         {
           "id": "headquarters-c016",
-          "text": "아니 근데 진짜 왜 안 바뀜? 왜 안 바뀜? 왜 안 바뀜?"
+          "text": "아니근데 진짜 왜안바뀜? 왜안바뀜? 왜안바뀜?"
         },
         {
           "id": "headquarters-c017",
@@ -162,12 +162,12 @@
         },
         {
           "id": "headquarters-c018",
-          "text": "몇십 년째 독재자 이젠 내려올 때 됐는데",
+          "text": "몇십년째 독재자 이젠 내려올 때 됐는데",
           "parent": "headquarters-c017"
         },
         {
           "id": "headquarters-c019",
-          "text": "솔직히 걔가 제일 수혜자 아니냐? 듣보였다가 한순간에 저 자리 올라갔잖음"
+          "text": "솔직히 걔가 제일 수혜자아니냐? 듣보였다가 한순간에 저자리 올라갔잖음"
         },
         {
           "id": "headquarters-c020",
@@ -176,7 +176,7 @@
         },
         {
           "id": "headquarters-c021",
-          "text": "아 또 음모론 시작하네",
+          "text": "아 또 음모론시작하네",
           "parent": "headquarters-c020"
         },
         {
@@ -191,7 +191,7 @@
         },
         {
           "id": "headquarters-c024",
-          "text": "근데 예쁜인 어디서 온 놈이야? 걔 가족에 관한 정보는 왜 없어?"
+          "text": "근데 예쁜인 어디서온 놈이야? 걔 가족에관한 정보는 왜없어?"
         },
         {
           "id": "headquarters-c025",
@@ -215,11 +215,11 @@
         },
         {
           "id": "headquarters-c029",
-          "text": "근데 진심 연고 하나 없는 건 좀 이상함"
+          "text": "근데 진심 연고하나 없는건 좀 이상함"
         },
         {
           "id": "headquarters-c030",
-          "text": "전쟁에서 죽은 거 아니고?",
+          "text": "전쟁에서 죽은거 아니고?",
           "parent": "headquarters-c029"
         },
         {
@@ -238,7 +238,7 @@
         },
         {
           "id": "headquarters-c034",
-          "text": "그런다고 저 직함까지 달아줄 일이냐?",
+          "text": "그런다고 저 직함까지 달아줄일이냐?",
           "parent": "headquarters-c033"
         },
         {
@@ -256,7 +256,7 @@
         },
         {
           "id": "headquarters-c038",
-          "text": "솔직히 너무 오래 봤다 저 얼굴 지겹다 늙지도 않고"
+          "text": "솔직히 너무 오래봤다 저얼굴 지겹다 늙지도 않고"
         },
         {
           "id": "headquarters-c039",
@@ -288,12 +288,12 @@
         },
         {
           "id": "headquarters-c045",
-          "text": "전 사령관 늙어 죽었는데요",
+          "text": "전사령관 늙어죽었는데요",
           "parent": "headquarters-c044"
         },
         {
           "id": "headquarters-c046",
-          "text": "발표는 그렇게 했지",
+          "text": "발표는 그렇게했지",
           "parent": "headquarters-c045"
         },
         {
@@ -318,11 +318,11 @@
         },
         {
           "id": "headquarters-c052",
-          "text": "솔직히 크리처 발발하자마자 배저가 창설된 게 좀 이상하긴 하자너 타이밍이 너무 절묘하지 않냐?"
+          "text": "솔직히 크리처 발발하자마자 배저가 창설된 게 좀 이상하긴 하자너 타이밍이 너무 절묘하지않냐?"
         },
         {
           "id": "headquarters-c053",
-          "text": "잘 대처했는데도 ㅈㄹ",
+          "text": "잘대처했는데도 ㅈㄹ",
           "parent": "headquarters-c052"
         },
         {
@@ -364,3 +364,4 @@
   window.HILDE_GOOGLE_YEYHYEON=supplied;
   window.HILDE_CONTENT.safari.personSearch=supplied;
 })();
+
