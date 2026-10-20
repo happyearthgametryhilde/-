@@ -211,6 +211,11 @@
   const KAKAO_ALERT_URL='assets/kakao/notification-katalk.wav?v=20261019z';
   function preloadKakaoOpeningSound() {
     if(!C.kakaoScene)return null;
+    // Decode while the lock screen is visible; only playback needs activation.
+    const AudioContext=window.AudioContext||window.webkitAudioContext;
+    if(!kakaoOpeningSound.context&&AudioContext){
+      try{kakaoOpeningSound.context=new AudioContext({latencyHint:'interactive'});}catch{}
+    }
     if(!kakaoOpeningSound.player&&typeof window.Audio==='function'){
       try {
         const player=new window.Audio(KAKAO_ALERT_URL);player.preload='auto';player.setAttribute('playsinline','');
@@ -229,7 +234,7 @@
     return kakaoOpeningSound.player;
   }
   function kakaoOpeningBannerVisible(item) {
-    return Boolean(item?.openingSound&&liveNotifications.current===item&&!document.hidden&&device.dataset.mode!=='locked'&&!$('#notificationBanner').hidden&&!$('#notificationBanner').classList.contains('is-dismissing'));
+    return Boolean(item?.openingSound&&liveNotifications.current===item&&!document.hidden&&device.dataset.mode!=='locked'&&(!$('#notificationBanner').hidden||item.starting)&&!$('#notificationBanner').classList.contains('is-dismissing'));
   }
   function stopKakaoOpeningSound() {
     kakaoOpeningSound.attempt++;kakaoOpeningSound.playing=false;kakaoOpeningSound.mode='idle';kakaoOpeningSound.item=null;
@@ -238,13 +243,22 @@
     try{kakaoOpeningSound.player?.pause();}catch{}
   }
   function prepareKakaoOpeningSound() {
-    // Resume the audio clock in the unlock gesture and decode before the banner.
+    // Safari needs actual output activation in the gesture, not a muted media play.
+    try{if(window.navigator?.audioSession)window.navigator.audioSession.type='playback';}catch{}
+    preloadKakaoOpeningSound();
     const AudioContext=window.AudioContext||window.webkitAudioContext;
     if(!kakaoOpeningSound.context&&AudioContext){
       try{kakaoOpeningSound.context=new AudioContext({latencyHint:'interactive'});}catch{}
     }
     const context=kakaoOpeningSound.context;
-    if(context?.state==='suspended')Promise.resolve(context.resume()).catch(()=>{});
+    if(context&&context.state!=='running'&&context.state!=='closed')Promise.resolve(context.resume()).catch(()=>{});
+    if(context&&typeof context.createBuffer==='function'){
+      try{
+        const warm=context.createBufferSource();
+        warm.buffer=context.createBuffer(1,1,context.sampleRate||44100);
+        warm.connect(context.destination);warm.onended=()=>warm.disconnect();warm.start(0);
+      }catch{}
+    }
     if(kakaoOpeningSound.played||kakaoOpeningSound.primed||kakaoOpeningSound.mode!=='idle')return;
     const player=preloadKakaoOpeningSound();if(!player)return;
     // Warm the actual clip silently; keep its URL and decoder ready for fallback.
@@ -286,7 +300,7 @@
     }
     try {
       player.muted=false;player.currentTime=0;player.volume=volume;
-      Promise.resolve(player.play()).then(()=>{
+      return Promise.resolve(player.play()).then(()=>{
         if(attempt!==kakaoOpeningSound.attempt)return;
         const completingGesture=fromGesture&&liveNotifications.current===item&&!document.hidden&&device.dataset.mode!=='locked';
         if(!kakaoOpeningBannerVisible(item)&&!completingGesture){stopKakaoOpeningSound();return;}
@@ -360,9 +374,27 @@
     liveNotifications.current=item;
     const banner=$('#notificationBanner'),preview=state.settings.previews?item.text:'새로운 메시지가 도착했습니다.';
     banner.innerHTML='<button class="notification-banner-open" data-action="notification-open" data-app="'+esc(item.app)+'" data-id="'+esc(item.id)+'" aria-label="'+esc(item.name)+(item.group?' · '+esc(item.group):'')+': '+esc(preview)+'">'+notificationIdentity(item)+'<span class="notification-copy"><span class="notification-title"><strong class="notification-sender">'+esc(item.name)+'</strong><time>지금</time></span>'+(item.group?'<strong class="notification-group">'+esc(item.group)+'</strong>':'')+'<p>'+esc(preview)+'</p></span></button>';
-    banner.hidden=false;
-    playKakaoOpeningSound(item);
-    liveNotifications.dismissTimer=setTimeout(()=>hideNotificationBanner(),4000);
+    // For media fallback, play() resolves when playback really starts.
+    // Reveal the banner at that point instead of showing it ahead of the sound.
+    item.starting=Boolean(item.openingSound);banner.hidden=item.starting;
+    let revealed=false;
+    const reveal=()=>{
+      if(revealed||liveNotifications.current!==item||document.hidden||device.dataset.mode==='locked')return;
+      revealed=true;
+      clearTimeout(liveNotifications.dismissTimer);
+      item.starting=false;banner.hidden=false;
+      if(item.openingSound)kakaoOpeningSound.played=true;
+      liveNotifications.dismissTimer=setTimeout(()=>hideNotificationBanner(),4000);
+    };
+    const playback=playKakaoOpeningSound(item);
+    if(playback&&typeof playback.then==='function'){
+      liveNotifications.dismissTimer=setTimeout(()=>{
+        if(liveNotifications.current!==item)return;
+        // Never let an unresolved play promise emit a late tone after this limit.
+        stopKakaoOpeningSound();reveal();
+      },1200);
+      playback.then(reveal,reveal);
+    }else reveal();
   }
   function deliverLocalNotification(event,test=false) {
     if((C.notifications?.enabled===false&&!event.scripted)||!['messages','kakao'].includes(event.app))return;
@@ -1082,7 +1114,7 @@
     const data=C.safari.personSearch,profile=data.profile;
     const person='<section class="google-person-card" aria-labelledby="googlePersonName"><header><div><h1 id="googlePersonName">'+esc(profile.name)+'</h1><p>'+esc(profile.role)+'</p></div><img src="'+esc(profile.image)+'" alt="단색 프로필 사진" width="96" height="112"></header></section>';
     const news='<section class="google-top-stories google-person-news" aria-labelledby="googlePersonNewsTitle"><h2 id="googlePersonNewsTitle">뉴스</h2><div class="google-news-list">'+data.news.map(item=>'<article class="google-news-card"><span>'+esc(item.source)+'</span><h3>'+esc(item.title)+'</h3></article>').join('')+'</div></section>';
-    const communities='<section class="google-community-results google-fan-results" aria-labelledby="googleCommunityTitle"><h2 id="googleCommunityTitle">'+esc(data.communityName)+'</h2>'+data.posts.map(post=>'<article class="google-community-result">'+googleFanSource(data.gallery)+'<h3><button data-action="google-community" data-id="'+esc(post.id)+'">'+esc(post.title)+'</button></h3><p>'+esc(post.body||post.comments[0].text)+'</p><span class="google-community-count">댓글 '+post.comments.length+'</span></article>').join('')+'</section>';
+    const communities='<section class="google-community-results google-fan-results" aria-label="커뮤니티 검색 결과">'+data.posts.map(post=>'<article class="google-community-result">'+googleFanSource(data.gallery)+'<h3><button data-action="google-community" data-id="'+esc(post.id)+'">'+esc(post.title)+'</button></h3><p>'+esc(post.body||post.comments[0].text)+'</p><span class="google-community-count">댓글 '+post.comments.length+'</span></article>').join('')+'</section>';
     return '<nav class="google-result-tabs" aria-label="검색 종류"><strong aria-current="page">전체</strong><span>뉴스</span><span>이미지</span><span>동영상</span></nav>'+person+news+communities;
   }
   function renderGoogleCommunity() {
@@ -1169,7 +1201,7 @@
   }
   function fanBoardIntro(board,isPost=false) {
     if(board.theme==='qoo')return '<section class="fan-board-intro"><h'+(isPost?'2':'1')+' class="fan-board-name" tabindex="-1">'+esc(board.title)+' <span>카테고리</span></h'+(isPost?'2':'1')+'><p>'+esc(board.description)+'</p></section>';
-    return '<section class="fan-board-intro bb-gallery-intro"><h'+(isPost?'2':'1')+' class="fan-board-name" tabindex="-1">'+esc(board.title)+(board.minor===false?'':' <span class="dc-minor-mark" aria-label="마이너 갤러리">m</span>')+'</h'+(isPost?'2':'1')+'><div class="bb-gallery-tools"><button class="bb-info" disabled aria-label="갤러리 정보">'+icon('info')+'</button><button disabled>설정 <i>N</i></button><button disabled>연관</button><button class="fan-write" disabled>글쓰기</button></div></section>';
+    return '<section class="fan-board-intro bb-gallery-intro"><h'+(isPost?'2':'1')+' class="fan-board-name" tabindex="-1"'+(board.title==='블랙배저 갤러리'?' hidden':'')+'>'+esc(board.title)+(board.minor===false?'':' <span class="dc-minor-mark" aria-label="마이너 갤러리">m</span>')+'</h'+(isPost?'2':'1')+'><div class="bb-gallery-tools"><button class="bb-info" disabled aria-label="갤러리 정보">'+icon('info')+'</button><button disabled>설정 <i>N</i></button><button disabled>연관</button><button class="fan-write" disabled>글쓰기</button></div></section>';
   }
   function fanGalleryAd() {
     return '<aside class="dc-gallery-ad bb-gallery-ad" aria-label="광고"><div><strong>렉시크 누들</strong><span class="fan-ad-label">AD</span></div><p>힐데베르트 탈레브가 선택한 렉시크 누들 🍜</p></aside>';
@@ -1806,7 +1838,7 @@
       case 'safari-keyboard-done':state.safariKeyboardOpen=false;$('#safariQuery')?.blur();syncSafariSearchUI();break;
       case 'back':back();break;
       case 'notification':openThread(el.dataset.app,id);break;
-      case 'notification-open':playKakaoOpeningSound(liveNotifications.current,true);hideNotificationBanner();openThread(el.dataset.app,id);break;
+      case 'notification-open':hideNotificationBanner();openThread(el.dataset.app,id);break;
       case 'toggle-auto-notifications':if(C.notifications?.enabled===false)break;state.settings.autoNotifications=state.settings.autoNotifications===false;stopNotificationSchedule();if(state.settings.autoNotifications)startNotificationSchedule();save('settings');navigate({...state.route});break;
       case 'test-kakao-sound':testKakaoOpeningSound();break;
       case 'test-notification':{if(C.notifications?.enabled===false)break;const example=C.notifications?.events?.[0];if(example)deliverLocalNotification(example,true);break;}
@@ -1989,8 +2021,8 @@
     if(img.tagName==='IMG'&&img.dataset.fallback){const fallback=img.dataset.fallback;delete img.dataset.fallback;img.src=fallback;}
   },true);
   document.addEventListener('click',()=>{
-    const item=liveNotifications.current;
-    if(kakaoOpeningBannerVisible(item))playKakaoOpeningSound(item,true);
+    // Retry activation before the first alert, never replay a missed tone on a later tap.
+    if(!kakaoOpeningSound.played&&!liveNotifications.current)prepareKakaoOpeningSound();
   },true);
   $('#unlockButton').addEventListener('click',unlock);
   $('#homeButton').addEventListener('click',()=>!$('#controlCenter').hidden?closeControlCenter():device.dataset.mode==='locked'?unlock():home());
