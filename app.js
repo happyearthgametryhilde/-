@@ -74,7 +74,7 @@
   let toastTimer;
   const liveNotifications={started:false,timers:[],pending:[],current:null,dismissTimer:null,exitTimer:null};
   const kakaoScene={started:false,replied:false};
-  const kakaoOpeningSound={player:null,request:null,context:null,buffer:null,bufferRequest:null,source:null,primed:false,played:false,playing:false,attempt:0,mode:'idle',item:null,lastError:null};
+  const kakaoOpeningSound={openingPlayer:null,openingArmed:false,openingTimer:null,openingResolve:null,player:null,request:null,context:null,buffer:null,bufferRequest:null,source:null,primed:false,played:false,playing:false,attempt:0,mode:'idle',item:null,lastError:null};
   const historyTimes=[...[...C.kakao,...C.messages].flatMap(chat=>chat.items),...C.phone.calls].map(item=>Date.parse(item.date+'T'+item.time+':00+09:00')).filter(Number.isFinite);
   const incoming={messageTimer:null,callTimer:null,messageIndex:0,callIndex:0,storyStartedAt:(historyTimes.length?Math.max(...historyTimes):Date.now())+60000,sessionStartedAt:Date.now()};
   let gestureStart = null;
@@ -211,10 +211,12 @@
   const KAKAO_ALERT_URL='assets/kakao/notification-katalk.wav?v=20261019z';
   function preloadKakaoOpeningSound() {
     if(!C.kakaoScene)return null;
-    // Decode while the lock screen is visible; only playback needs activation.
-    const AudioContext=window.AudioContext||window.webkitAudioContext;
-    if(!kakaoOpeningSound.context&&AudioContext){
-      try{kakaoOpeningSound.context=new AudioContext({latencyHint:'interactive'});}catch{}
+    if(!kakaoOpeningSound.openingPlayer&&typeof window.Audio==='function'){
+      try{
+        const opening=new window.Audio('assets/kakao/notification-opening.wav?v=20261020trusted1');
+        opening.preload='auto';opening.setAttribute('playsinline','');opening.load();
+        kakaoOpeningSound.openingPlayer=opening;
+      }catch{}
     }
     if(!kakaoOpeningSound.player&&typeof window.Audio==='function'){
       try {
@@ -222,14 +224,6 @@
         player.onended=()=>{if(!kakaoOpeningSound.source){kakaoOpeningSound.playing=false;kakaoOpeningSound.mode='idle';}};
         kakaoOpeningSound.player=player;player.load();
       }catch{}
-    }
-    if(!kakaoOpeningSound.request&&typeof window.fetch==='function'){
-      kakaoOpeningSound.request=window.fetch(KAKAO_ALERT_URL).then(response=>response.ok?response.arrayBuffer():null).catch(()=>null);
-    }
-    if(kakaoOpeningSound.context&&kakaoOpeningSound.request&&!kakaoOpeningSound.bufferRequest){
-      kakaoOpeningSound.bufferRequest=kakaoOpeningSound.request.then(bytes=>bytes?kakaoOpeningSound.context.decodeAudioData(bytes.slice(0)):null).then(buffer=>{
-        kakaoOpeningSound.buffer=buffer;return buffer;
-      }).catch(()=>null);
     }
     return kakaoOpeningSound.player;
   }
@@ -240,64 +234,57 @@
     kakaoOpeningSound.attempt++;kakaoOpeningSound.playing=false;kakaoOpeningSound.mode='idle';kakaoOpeningSound.item=null;
     const source=kakaoOpeningSound.source;kakaoOpeningSound.source=null;
     try{source?.stop();source?.disconnect();}catch{}
-    try{kakaoOpeningSound.player?.pause();}catch{}
+    try{kakaoOpeningSound.player?.pause();kakaoOpeningSound.openingPlayer?.pause();}catch{}
+    clearTimeout(kakaoOpeningSound.openingTimer);kakaoOpeningSound.openingTimer=null;
+    const resolve=kakaoOpeningSound.openingResolve;kakaoOpeningSound.openingResolve=null;resolve?.();
   }
   function prepareKakaoOpeningSound() {
-    // Safari needs actual output activation in the gesture, not a muted media play.
-    try{if(window.navigator?.audioSession)window.navigator.audioSession.type='playback';}catch{}
+    // Called only by unlock: this unmuted media play stays inside the trusted gesture.
+    // The file itself begins with exactly the existing one-second opening delay.
+    if(kakaoOpeningSound.played||kakaoOpeningSound.openingArmed)return;
     preloadKakaoOpeningSound();
-    const AudioContext=window.AudioContext||window.webkitAudioContext;
-    if(!kakaoOpeningSound.context&&AudioContext){
-      try{kakaoOpeningSound.context=new AudioContext({latencyHint:'interactive'});}catch{}
-    }
-    const context=kakaoOpeningSound.context;
-    if(context&&context.state!=='running'&&context.state!=='closed')Promise.resolve(context.resume()).catch(()=>{});
-    if(context&&typeof context.createBuffer==='function'){
-      try{
-        const warm=context.createBufferSource();
-        warm.buffer=context.createBuffer(1,1,context.sampleRate||44100);
-        warm.connect(context.destination);warm.onended=()=>warm.disconnect();warm.start(0);
-      }catch{}
-    }
-    if(kakaoOpeningSound.played||kakaoOpeningSound.primed||kakaoOpeningSound.mode!=='idle')return;
-    const player=preloadKakaoOpeningSound();if(!player)return;
-    // Warm the actual clip silently; keep its URL and decoder ready for fallback.
-    const attempt=++kakaoOpeningSound.attempt;kakaoOpeningSound.mode='prime';
-    try {
-      player.muted=true;player.currentTime=0;
-      Promise.resolve(player.play()).then(()=>{
-        if(attempt!==kakaoOpeningSound.attempt)return;
-        player.pause();player.currentTime=0;player.muted=false;
-        kakaoOpeningSound.primed=true;kakaoOpeningSound.mode='idle';
-      },error=>{
-        if(attempt===kakaoOpeningSound.attempt){player.muted=false;kakaoOpeningSound.mode='idle';kakaoOpeningSound.lastError=error?.name||'playback';}
+    const player=kakaoOpeningSound.openingPlayer;if(!player)return;
+    const volume=.85*Math.sqrt(Math.max(0,Math.min(100,Number(state.controls.volume)||0))/100);
+    if(!volume)return;
+    try{if(window.navigator?.audioSession)window.navigator.audioSession.type='playback';}catch{}
+    kakaoOpeningSound.openingArmed=true;
+    try{
+      player.muted=false;player.volume=volume;player.currentTime=0;
+      Promise.resolve(player.play()).catch(error=>{
+        kakaoOpeningSound.lastError=error?.name||'playback';
+        kakaoOpeningSound.openingArmed=false;
       });
-    }catch(error){player.muted=false;kakaoOpeningSound.mode='idle';kakaoOpeningSound.lastError=error?.name||'playback';}
+    }catch(error){kakaoOpeningSound.lastError=error?.name||'playback';kakaoOpeningSound.openingArmed=false;}
   }
   function playKakaoOpeningSound(item,fromGesture=false) {
     if(kakaoOpeningSound.played||kakaoOpeningSound.playing||!kakaoOpeningBannerVisible(item))return;
     const player=preloadKakaoOpeningSound();if(!player)return;
     const volume=.85*Math.sqrt(Math.max(0,Math.min(100,Number(state.controls.volume)||0))/100);
-    if(!volume){kakaoOpeningSound.played=true;return;}
+    if(!volume){try{kakaoOpeningSound.openingPlayer?.pause();}catch{}kakaoOpeningSound.played=true;return;}
+    if(kakaoOpeningSound.openingArmed&&kakaoOpeningSound.openingPlayer){
+      const opening=kakaoOpeningSound.openingPlayer;
+      kakaoOpeningSound.item=item;kakaoOpeningSound.playing=true;
+      opening.volume=volume;
+      return new Promise(resolve=>{
+        kakaoOpeningSound.openingResolve=resolve;
+        const finish=()=>{
+          if(kakaoOpeningSound.openingResolve!==resolve)return;
+          kakaoOpeningSound.openingResolve=null;
+          kakaoOpeningSound.played=true;resolve();
+        };
+        const check=()=>{
+          if(kakaoOpeningSound.openingResolve!==resolve)return;
+          if(!kakaoOpeningBannerVisible(item)){stopKakaoOpeningSound();return;}
+          if(opening.currentTime>=1){finish();return;}
+          kakaoOpeningSound.openingTimer=setTimeout(check,16);
+        };
+        if(opening.paused){
+          try{opening.currentTime=1;Promise.resolve(opening.play()).then(check,finish);}catch{finish();}
+        }else check();
+      });
+    }
     stopKakaoOpeningSound();const attempt=++kakaoOpeningSound.attempt;
     kakaoOpeningSound.playing=true;kakaoOpeningSound.mode='alert';kakaoOpeningSound.item=item;
-    const context=kakaoOpeningSound.context,buffer=kakaoOpeningSound.buffer;
-    if(context?.state==='running'&&buffer){
-      try{
-        const source=context.createBufferSource(),gain=context.createGain();
-        source.buffer=buffer;gain.gain.value=volume;
-        source.connect(gain);gain.connect(context.destination);
-        source.onended=()=>{
-          source.disconnect();gain.disconnect();
-          if(kakaoOpeningSound.source===source){kakaoOpeningSound.source=null;kakaoOpeningSound.playing=false;kakaoOpeningSound.mode='idle';}
-        };
-        kakaoOpeningSound.source=source;
-        // The decoded clip starts with the same paint as the arriving banner.
-        source.start(context.currentTime);
-        kakaoOpeningSound.played=true;kakaoOpeningSound.primed=true;kakaoOpeningSound.lastError=null;
-        return;
-      }catch{try{kakaoOpeningSound.source?.disconnect();}catch{}kakaoOpeningSound.source=null;}
-    }
     try {
       player.muted=false;player.currentTime=0;player.volume=volume;
       return Promise.resolve(player.play()).then(()=>{
@@ -1774,6 +1761,9 @@
 
   }
   function openThread(app,id) {
+    if(app==='kakao'&&id===C.kakaoScene?.chatId&&!kakaoOpeningSound.played){
+      stopKakaoOpeningSound();kakaoOpeningSound.played=true;
+    }
     if(!['messages','kakao'].includes(app))return;
     if(!state[app].some(chat=>chat.id===id))return;
     if(app==='kakao'){
@@ -2020,10 +2010,6 @@
   document.addEventListener('error',event=>{
     const img=event.target;
     if(img.tagName==='IMG'&&img.dataset.fallback){const fallback=img.dataset.fallback;delete img.dataset.fallback;img.src=fallback;}
-  },true);
-  document.addEventListener('click',()=>{
-    // Retry activation before the first alert, never replay a missed tone on a later tap.
-    if(!kakaoOpeningSound.played&&!liveNotifications.current)prepareKakaoOpeningSound();
   },true);
   $('#unlockButton').addEventListener('click',unlock);
   $('#homeButton').addEventListener('click',()=>!$('#controlCenter').hidden?closeControlCenter():device.dataset.mode==='locked'?unlock():home());

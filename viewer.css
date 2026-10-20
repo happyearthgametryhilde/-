@@ -50,3 +50,5 @@ html, body {
 @media (hover: none) and (pointer: coarse) {
   .stage:has(#safariQuery:focus) { align-items: flex-start; }
 }
+
+.network-type { display:block; font-size:13px; font-weight:650; line-height:20px; letter-spacing:-.3px; }
