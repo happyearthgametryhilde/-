@@ -1789,16 +1789,22 @@
     safariPointerFocus=state.route?.app==='safari'&&!!event.target.closest('#safariForm');
     if(event.target.closest('#safariKeyboard button,#safariKeyboardAccessory button'))event.preventDefault();
   });
-  document.addEventListener('pointercancel',()=>{safariPointerFocus=false;});
+  // Keep the origin through iOS focus-induced pointer cancellation.
+  // The next pointerdown replaces it before any new intentional tap.
+  document.addEventListener('pointercancel',()=>{if(state.route?.app!=='safari')safariPointerFocus=false;});
   document.addEventListener('focusin',event=>{
     // Native keyboard activation can consume the later click on iOS.
     // Show history on focus itself, including pointer-initiated focus.
     if(event.target.id==='safariQuery')setSafariSearch(true);
   });
   document.addEventListener('click',event=>{
+    const beganOnSearch=safariPointerFocus;
     safariPointerFocus=false;
     if(state.route?.app==='safari'){
-      if(event.target.closest('#safariForm')){
+      if(beganOnSearch||event.target.closest('#safariForm')){
+        // Opening search can move a history row under the original finger position.
+        // Consume that one opening click instead of activating the retargeted row.
+        if(beganOnSearch&&!event.target.closest('#safariForm'))event.preventDefault();
         activateSafariSearch();return;
       }
       else if(!event.target.closest('#googleRecentSearches,#safariKeyboard,#safariKeyboardAccessory,[data-action="safari-search"],[data-action="safari-back"]'))setSafariSearch(false);
