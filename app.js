@@ -559,6 +559,7 @@
     unlock();
   }
   function lock() {
+    window.HILDE_YOON_CALL?.suspend();
     rememberKakaoListPosition();
     rememberSafariPosition();
     rememberMessagesListPosition();pauseIncomingSchedule();
