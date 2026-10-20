@@ -407,7 +407,7 @@
         $('#chatList').innerHTML=chatRows(event.app,query);
       }
     }
-    if(event.app==='kakao'&&event.id==='yoon-privacy-reply-3')window.HILDE_YOON_CALL?.ready(kakaoAvatar(chat),text=>deliverLocalNotification({app:'kakao',chatId:chat.id,id:'yoon-call-followup-'+Date.now()+'-'+text,text,scripted:true}));
+    if(event.app==='kakao'&&event.id==='yoon-privacy-reply-3')window.HILDE_YOON_CALL?.ready(contactAvatar(contact(chat.id)||chat),text=>deliverLocalNotification({app:'kakao',chatId:chat.id,id:'yoon-call-followup-'+Date.now()+'-'+text,text,scripted:true}));
     renderHome();
     if(viewing)return;
     liveNotifications.pending.push(item);pumpNotificationQueue();
