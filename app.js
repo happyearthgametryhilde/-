@@ -1301,10 +1301,21 @@
     const footer='<footer class="google-home-footer"><div>대한민국</div><p><span>어두운 테마: 사용 중지됨</span><span>설정</span><span>개인정보처리방침</span><span>약관</span></p><p><span>광고</span><span>비즈니스</span><span>Google 정보</span></p></footer>';
     return '<div class="app-view safari-app google-app google-native-app'+(result?' is-results':'')+(result===GOOGLE_PERSON_QUERY?' is-person-results':'')+'"><div class="app-scroll google-page">'+topbar+(!result?'<h1 class="google-home-brand" tabindex="-1">'+googleWordmark()+'</h1>':'')+form+(result?'<div class="google-results-content">'+googleResults(result)+'</div>':footer)+'</div><section class="google-history-section" id="googleRecentSearches" aria-label="최근 검색 기록" hidden><div id="googleHistory">'+renderGoogleHistory()+'</div></section>'+safariChrome(result)+'<div class="safari-keyboard-url" hidden>google.co.kr</div><div class="safari-keyboard-accessory" id="safariKeyboardAccessory" hidden><span aria-hidden="true">'+icon('chevron-up')+icon('chevron-down')+'</span><button data-action="safari-keyboard-done" aria-label="키보드 닫기">'+icon('check')+'</button></div><div class="safari-keyboard" id="safariKeyboard" role="group" aria-label="화면 키보드" hidden></div></div>';
   }
+  function syncSafariSearchViewport() {
+    const root=$('.google-native-app');if(!root)return;
+    if(!state.safariSearchOpen){root.style.removeProperty('--safari-visible-height');return;}
+    const bounds=device.getBoundingClientRect(),logical=device.clientHeight||844;
+    const scale=bounds.height>0?bounds.height/logical:1;
+    const viewport=window.visualViewport;
+    const bottom=viewport?viewport.offsetTop+viewport.height:window.innerHeight;
+    const visible=Math.max(148,Math.min(logical,(bottom-bounds.top)/scale));
+    root.style.setProperty('--safari-visible-height',visible+'px');
+  }
   function syncSafariSearchUI() {
     const root=$('.google-native-app'),panel=$('#googleRecentSearches'),input=$('#safariQuery');if(!root||!panel||!input)return;
     root.classList.toggle('is-searching',state.safariSearchOpen);root.classList.toggle('keyboard-open',state.safariKeyboardOpen);
     panel.hidden=!state.safariSearchOpen;input.setAttribute('aria-expanded',String(state.safariSearchOpen));
+    syncSafariSearchViewport();
     $('#safariKeyboard').hidden=!state.safariKeyboardOpen;$('#safariKeyboardAccessory').hidden=!state.safariKeyboardOpen;$('.safari-keyboard-url').hidden=!state.safariKeyboardOpen;
     const keyboard=$('#safariKeyboard'),layout=[state.safariKeyLanguage,state.safariKeyNumbers,state.safariKeyShift].join(':');
     if(state.safariKeyboardOpen&&keyboard.dataset.layout!==layout){keyboard.innerHTML=safariKeyboardMarkup();keyboard.dataset.layout=layout;}
@@ -1780,8 +1791,9 @@
   });
   document.addEventListener('pointercancel',()=>{safariPointerFocus=false;});
   document.addEventListener('focusin',event=>{
-    // A pointer press must finish before the search field moves to the top.
-    if(event.target.id==='safariQuery'&&!safariPointerFocus)activateSafariSearch();
+    // Native keyboard activation can consume the later click on iOS.
+    // Show history on focus itself, including pointer-initiated focus.
+    if(event.target.id==='safariQuery')setSafariSearch(true);
   });
   document.addEventListener('click',event=>{
     safariPointerFocus=false;
@@ -2062,7 +2074,9 @@
   document.addEventListener('visibilitychange',()=>{
     if(document.hidden){pauseNotificationBanner();pauseIncomingSchedule();}else{pumpNotificationQueue();startIncomingSchedule();}
   });
-  window.addEventListener('resize',fitDevice);
+  window.addEventListener('resize',()=>{fitDevice();syncSafariSearchViewport();});
+  window.visualViewport?.addEventListener('resize',syncSafariSearchViewport);
+  window.visualViewport?.addEventListener('scroll',syncSafariSearchViewport);
   if(state.settings.wallpaperRevision!=='black-gradient-20261019'){state.settings.wallpaper=null;state.settings.wallpaperRevision='black-gradient-20261019';save('settings');}
   if(C.phone.historyRevision&&state.settings.phoneHistoryRevision!==C.phone.historyRevision){
     state.phoneCalls=clone(C.phone.calls);

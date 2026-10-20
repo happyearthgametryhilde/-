@@ -52,3 +52,15 @@ html, body {
 }
 
 .network-type { display:block; font-size:13px; font-weight:650; line-height:20px; letter-spacing:-.3px; }
+
+/* Recent searches use the space above the physical device keyboard. */
+.google-native-app.is-searching .google-history-section {
+  bottom: auto;
+  height: calc(var(--safari-visible-height, 844px) - 128px);
+  max-height: calc(100% - 128px);
+  min-height: 20px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+}
+.google-native-app.is-searching .google-safari-chrome { display: none; }
