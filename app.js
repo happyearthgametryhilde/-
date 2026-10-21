@@ -413,11 +413,12 @@
     liveNotifications.pending.push(item);pumpNotificationQueue();
   }
   function recordYoonIncomingCall(status) {
-    const id='visit-yoon-scripted-incoming';
+    const outgoing=status==='outgoing';
+    const id=outgoing?'visit-yoon-scripted-outgoing':'visit-yoon-scripted-incoming';
     let call=state.phoneCalls.find(item=>item.id===id);
     if(!call){
       const d=dateParts();
-      call={id,contact:'yoon',date:d.year+'-'+d.month+'-'+d.day,time:d.hour+':'+d.minute,direction:'incoming',missed:false,unread:false,visitIncoming:true};
+      call={id,contact:'yoon',date:d.year+'-'+d.month+'-'+d.day,time:d.hour+':'+d.minute,direction:outgoing?'outgoing':'incoming',missed:false,unread:false,visitIncoming:true};
       state.phoneCalls.unshift(call);
     }
     call.missed=status==='missed';
